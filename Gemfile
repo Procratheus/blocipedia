@@ -22,7 +22,7 @@ gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 gem 'pundit'
 gem "mini_magick"
-gem "refile", require: ["refile/rails", "refile/image_processing"]
+gem 'carrierwave'
 gem "haml-rails", "~> 0.8"
 gem 'friendly_id', '~> 5.1.0'
 gem 'epic-editor-rails'
