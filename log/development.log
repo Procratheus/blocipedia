@@ -1297,3 +1297,10 @@ Processing by Devise::SessionsController#new as HTML
   Rendered devise/shared/_links.html.erb (1.3ms)
   Rendered devise/sessions/new.html.erb within layouts/application (234.8ms)
 Completed 200 OK in 476ms (Views: 460.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-02 23:35:10 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 163ms (Views: 153.6ms | ActiveRecord: 0.5ms)

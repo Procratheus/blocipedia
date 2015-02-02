@@ -1,4 +1,4 @@
-if Rails.env.development?
+if Rails.env.development? || Rails.env.production?
   Actionmailer::Base.delivery_method = :smtp
   Actionmailer::Base.smtp_settings = {
     address:         "smtp.send.net",
