@@ -232,7 +232,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :dropbox, ENV['DROPBOX_KEY'], ENV["DROPBOX_SECRET"]
+  config.omniauth :twitter, ENV['TWITTER_KEY'], ENV["TWITTER_SECRET"]
   config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV["FACEBOOK_SECRET"]
   config.omniauth :linkedin, ENV['LINKEDIN_KEY'], ENV["LINKEDIN_SECRET"]
 

@@ -11,7 +11,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'figaro'
 gem 'omniauth'
-gem 'omniauth-dropbox'
+gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'faker'

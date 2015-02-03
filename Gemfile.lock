@@ -221,8 +221,6 @@ GEM
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
-    omniauth-dropbox (0.2.0)
-      omniauth-oauth (~> 1.0)
     omniauth-facebook (2.0.0)
       omniauth-oauth2 (~> 1.2)
     omniauth-linkedin (0.2.0)
@@ -235,6 +233,9 @@ GEM
       multi_json (~> 1.3)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    omniauth-twitter (1.1.0)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
     orm_adapter (0.5.0)
     passenger (4.0.58)
       daemon_controller (>= 1.2.0)
@@ -363,9 +364,9 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   omniauth
-  omniauth-dropbox
   omniauth-facebook
   omniauth-linkedin
+  omniauth-twitter
   passenger
   pg
   polymer-rails
