@@ -13,7 +13,6 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem 'omniauth-linkedin'
 gem 'faker'
 gem 'redcarpet'
 gem 'whenever', :require => false

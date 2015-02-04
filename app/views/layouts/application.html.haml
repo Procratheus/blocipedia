@@ -7,5 +7,23 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %ul
+      %li
+        = link_to "Home", root_path
+      - if current_user && current_user.email_verified?
+        %li
+          = link_to @user.name, edit_user_registration_path
+      - elsif current_user && !current_user.email_verified?
+        %li
+          = link_to "Complete Sign-up", finish_sign_up_path
+      - else
+        %li
+          = link_to "Sign-up with twitter", user_omniauth_authorize_path(:twitter)
+        %li
+          = link_to "Sign-up with facebook", user_omniauth_authorize_path(:facebook)
+      end
+    
+
+
     = yield
   
