@@ -27,6 +27,7 @@ class UsersController < ApplicationController
       else
         @show_errors = true
       end
+    end
   end
 
   def destroy
@@ -41,8 +42,8 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      accessible = [ :name, :email ] unless params [:user][:password]
-      accessible << [ :password, :password_confirmation ] unless params [:user][:password].blank?
+      accessible = [ :name, :email ]
+      accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
       params.require(:user).permit(accessible)
     end
 

@@ -15,13 +15,12 @@
           = link_to @user.name, edit_user_registration_path
       - elsif current_user && !current_user.email_verified?
         %li
-          = link_to "Complete Sign-up", finish_sign_up_path
+          = link_to "Complete Sign-up", finish_signup_path
       - else
         %li
           = link_to "Sign-up with twitter", user_omniauth_authorize_path(:twitter)
         %li
           = link_to "Sign-up with facebook", user_omniauth_authorize_path(:facebook)
-      end
     
 
 

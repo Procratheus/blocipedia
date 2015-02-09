@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   def self.find_for_oauth(auth, signed_in_resource = nil)
     
     identity = Identity.find_for_oauth(auth)
-    user = signed_in_resource ? signed_in_resource : indentity.user
+    user = signed_in_resource ? signed_in_resource : identity.user
     
     if user.nil?
       email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
