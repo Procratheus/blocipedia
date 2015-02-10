@@ -1,10 +1,16 @@
-%h2 Resend confirmation instructions
-= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .actions
-    = f.submit "Resend confirmation instructions"
-= render "devise/shared/links"
+ .ui.two.column.middle.aligned.relaxed.fitted.stackable.grid
+    .column
+      .center.aligned
+        %h2 Resend confirmation instructions
+      .ui.form.segment
+        = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+          = devise_error_messages!
+          .field
+            = f.label :email
+            .ui.left.icon.input
+              = f.email_field :email, autofocus: true
+              %i.user.icon
+          .field
+            %br/
+            = f.submit "Resend confirmation instructions", class: "ui left icon button blue submit"
+

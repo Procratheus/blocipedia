@@ -7,10 +7,15 @@
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = devise_error_messages!
           .field
+            = f.label :name
+            .ui.left.icon.input
+              = f.text_field :name, autofocus: true
+              %i.user.icon
+          .field
             = f.label :email
             .ui.left.icon.input
-              = f.email_field :email, autofocus: true
-              %i.user.icon
+              = f.email_field :email
+              %i.mail.icon
           .field
             = f.label :password
             - if @validatable
@@ -35,13 +40,14 @@
       %h2 Sign up with social media
       .ui.form.segment
         .ui.huge.facebook.button
-          = link_to " ", user_omniauth_authorize_path(:facebook)
-          %i.facebook.icon
-          facebook
+          = link_to user_omniauth_authorize_path(:facebook) do
+            %i.facebook.icon
+            facebook      
         .ui.huge.twitter.button
-          = link_to " ", user_omniauth_authorize_path(:twitter)
-          %i.twitter.icon
-          twitter
+          = link_to user_omniauth_authorize_path(:twitter) do
+            %i.twitter.icon
+            twitter
+            
 
 
           

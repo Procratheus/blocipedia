@@ -1,17 +1,25 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+%div
+  .ui.two.column.middle.aligned.relaxed.fitted.stackable.grid
+    .column
+      .center.aligned
+        %h2 Log in
+      .ui.form.segment
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field
+            = f.label :email
+            .ui.left.icon.input
+              = f.email_field :email, autofocus: true
+              %i.mail.icon
+          .field
+            = f.label :password
+            .ui.left.icon.input
+              = f.password_field :password, autocomplete: "off"
+              %i.lock.icon
+          - if devise_mapping.rememberable?
+            = f.check_box :remember_me
+            %b   
+              = f.label :remember_me       
+          .field
+            %br/
+            = f.submit "Log in", class: " ui left icon button blue submit"
