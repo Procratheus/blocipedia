@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup]
 
   def show
   end
@@ -21,7 +21,8 @@ class UsersController < ApplicationController
   def finish_signup
     if request.patch? && params[:user]
       if @user.update(user_params)
-        sign_in(@user, :bypass => true)
+        @user.skip_reconfirmation!
+        sign_in(@user, bypass: true)
         redirect_to @user
         flash[:info] = "You have updated your user profile succesfully"
       else

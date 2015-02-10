@@ -1907,3 +1907,2713 @@ Processing by OmniauthCallbacksController#passthru as HTML
   Parameters: {"provider"=>"facebook"}
   Rendered text template (0.0ms)
 Completed 404 Not Found in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 22:58:27 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 26ms
+
+NoMethodError (undefined method `update' for nil:NilClass):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.1ms)
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-09 22:58:35 +0000
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-09 22:58:49 +0000
+
+
+Started GET "/users/auth/twitter/callback?oauth_token=3F8m90SHxJtXW98D0WdkhcCTZYT9Ii3e&oauth_verifier=pYSThi4JZFiQCMr7vAMomIDaGAOJ8kfW" for 127.0.0.1 at 2015-02-09 22:58:55 +0000
+Processing by OmniauthCallbacksController#twitter as HTML
+  Parameters: {"oauth_token"=>"3F8m90SHxJtXW98D0WdkhcCTZYT9Ii3e", "oauth_verifier"=>"pYSThi4JZFiQCMr7vAMomIDaGAOJ8kfW"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '2791788213' AND "identities"."provider" = 'twitter' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 335ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 22:58:57 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/finish_signup.html.haml within layouts/application (9.5ms)
+Completed 200 OK in 615ms (Views: 610.3ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 22:59:02 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"alex"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `update' for nil:NilClass):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:01:42 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 209ms (Views: 208.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:01:45 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered users/finish_signup.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 172ms (Views: 170.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:01:48 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"alex"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `update' for nil:NilClass):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.4ms)
+
+
+Started PATCH "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:03:26 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"alex"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 13ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:41:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.4ms)
+
+
+Started PATCH "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:13:28 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"alex"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 12ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:41:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started PATCH "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:13:49 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"alex"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 14ms
+
+NoMethodError (undefined method `update' for nil:NilClass):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:15:28 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (1.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 185ms (Views: 183.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:15:39 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 176ms (Views: 174.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:15:45 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/finish_signup.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 170ms (Views: 168.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:16:27 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"alex"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `update' for nil:NilClass):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.0ms)
+
+
+Started PATCH "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:16:35 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"alexl@versocap.com"}, "commit"=>"Complete Signup", "id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `update' for nil:NilClass):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:16:42 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 174ms (Views: 173.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-09 23:16:47 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-09 23:16:47 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQC8AtV0cmGeYLkaXx8P70nGUDv8bCcJEJhsPxwZIs0ul2kwa7DuO6mbX5MQXoKrkHtVY9zTR8dqBiKhvr6cL1lrDCwJmp8NgXme_U6UDTu4eDNsfxi9YLOa2z2cD8afDHgrpMdmZj-PyvDWBUqCwBQuxwFE9lc4hl9kKf3O5pBeHS57IQaQj6qZ5iKH61HQCnbOX47QGJo6bAQXzYrl9lgd22Z7KgCKTTLO-p99pTgcFbWAXxjcGatGNVS6Wt2U6nMJTZ1FpfsOktKgJ1t_EFEmeYw1yDwd0tDmGx7hAzOZICh-x2JuED4kkSzeUwp0wUUkkKi2tqZMFjIZj-McXx5l&state=105d2c75a67d0ae6327b627b499bff084baae91b3e09efa0" for 127.0.0.1 at 2015-02-09 23:16:47 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQC8AtV0cmGeYLkaXx8P70nGUDv8bCcJEJhsPxwZIs0ul2kwa7DuO6mbX5MQXoKrkHtVY9zTR8dqBiKhvr6cL1lrDCwJmp8NgXme_U6UDTu4eDNsfxi9YLOa2z2cD8afDHgrpMdmZj-PyvDWBUqCwBQuxwFE9lc4hl9kKf3O5pBeHS57IQaQj6qZ5iKH61HQCnbOX47QGJo6bAQXzYrl9lgd22Z7KgCKTTLO-p99pTgcFbWAXxjcGatGNVS6Wt2U6nMJTZ1FpfsOktKgJ1t_EFEmeYw1yDwd0tDmGx7hAzOZICh-x2JuED4kkSzeUwp0wUUkkKi2tqZMFjIZj-McXx5l", "state"=>"105d2c75a67d0ae6327b627b499bff084baae91b3e09efa0"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mIdentity Load (0.1ms)[0m  [1mSELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdentity Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "identities" ("created_at", "provider", "uid", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-09 23:16:48.437669"], ["provider", "facebook"], ["uid", "833238006715005"], ["updated_at", "2015-02-09 23:16:48.437669"]]
+  [1m[36m (8.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdentity Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '833238006715005' AND "identities"."id" != 2 AND "identities"."provider" = 'facebook') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "identities" SET "updated_at" = ?, "user_id" = ? WHERE "identities"."id" = 2  [["updated_at", "2015-02-09 23:16:48.452212"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 32ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:16:48 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/finish_signup.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 184ms (Views: 182.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-09 23:16:53 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-09 23:16:53 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQDpUeuO8BG51-QJZdQLnzDBGU0s1UGIxm-XTDzLNe0hEuvUe4zOqhzVp7Wc6qSAcMKPnIS0XZrfTI2s5yW4WbkTt5Un9lgT2LiUvBR6tLLDlGhrIogS60RWdQ55an6gd4WSwJxdvkKQQXaAp5vrlQblmtcVtDg69qyOyVLaIM1KIyB1ZsU0OT4jD2L5TEWYUZ4avBjT0Ab_vAfUqNuj0cM4GixEaABsTYNi1qy0IatUEe51teTOeIhb5z9y0WEekjVreH7yciMjCMhcNET_pcHw602lXUpJpEGPQJ0vDISBbcIaDQluMIi0wZfVceh6oJSwUjAs94cpF0T6msUKReev&state=b2e66d9c356e16a567fd7e946bd68fa021a1db97d6b10e56" for 127.0.0.1 at 2015-02-09 23:16:53 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDpUeuO8BG51-QJZdQLnzDBGU0s1UGIxm-XTDzLNe0hEuvUe4zOqhzVp7Wc6qSAcMKPnIS0XZrfTI2s5yW4WbkTt5Un9lgT2LiUvBR6tLLDlGhrIogS60RWdQ55an6gd4WSwJxdvkKQQXaAp5vrlQblmtcVtDg69qyOyVLaIM1KIyB1ZsU0OT4jD2L5TEWYUZ4avBjT0Ab_vAfUqNuj0cM4GixEaABsTYNi1qy0IatUEe51teTOeIhb5z9y0WEekjVreH7yciMjCMhcNET_pcHw602lXUpJpEGPQJ0vDISBbcIaDQluMIi0wZfVceh6oJSwUjAs94cpF0T6msUKReev", "state"=>"b2e66d9c356e16a567fd7e946bd68fa021a1db97d6b10e56"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:16:53 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/finish_signup.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 183ms (Views: 182.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:16:58 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 177ms (Views: 176.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:29:32 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/finish_signup.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 200ms (Views: 188.8ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:29:34 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `update' for nil:NilClass):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.7ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:30:12 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/finish_signup.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 180ms (Views: 178.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:30:15 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 184ms (Views: 183.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:30:16 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/finish_signup.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 177ms (Views: 175.4ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:30:28 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `update' for nil:NilClass):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.3ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:30:42 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 197ms (Views: 185.6ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:30:48 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/finish_signup.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 203ms (Views: 197.1ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:30:51 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/finish_signup.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 182ms (Views: 176.0ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:31:06 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'e533123a8a4a478f56030cb54a246806cc02ea46cafdad71c7607c8f745f39f7'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["confirmation_sent_at", "2015-02-09 23:31:06.473528"], ["confirmation_token", "e533123a8a4a478f56030cb54a246806cc02ea46cafdad71c7607c8f745f39f7"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-09 23:31:06.273402"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (1.7ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 172.1ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (199.6ms)
+Date: Mon, 09 Feb 2015 23:31:06 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d9433aa397b_8783fd5919b1d3c12234@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=4arJuXAusQuZSi4hzrKy">Confirm my account</a></p>
+
+  [1m[35m (8.2ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 617ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:31:35 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '39af282ad9e1b3d71a530ccedce6e23f12e4bc528431c8268ff64b56ba5408bc'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["confirmation_sent_at", "2015-02-09 23:31:35.988798"], ["confirmation_token", "39af282ad9e1b3d71a530ccedce6e23f12e4bc528431c8268ff64b56ba5408bc"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-09 23:31:35.987858"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (0.3ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 6.0ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (3.5ms)
+Date: Mon, 09 Feb 2015 23:31:35 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d94358a3_8783fd5919b1d3c123bd@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=VLfk-Xvv5JWQk4XorL1J">Confirm my account</a></p>
+
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 35ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:31:41 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'e32b7570f9cce109fcd88a71189303444c28820cae4e4ce9d107dc8cf12941fe'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["confirmation_sent_at", "2015-02-09 23:31:41.436445"], ["confirmation_token", "e32b7570f9cce109fcd88a71189303444c28820cae4e4ce9d107dc8cf12941fe"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-09 23:31:41.435209"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (1.3ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.9ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (2.5ms)
+Date: Mon, 09 Feb 2015 23:31:41 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d9435d6dda6_8783fd594ee929812435@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=ZGC4CD98Fuvsf7VfEehz">Confirm my account</a></p>
+
+  [1m[35m (0.5ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 25ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:33:19 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '529623d1a75fe6a6675bab9f73d68f70a677c7f6fa492e3c5b5aac2f80f3d9da'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["confirmation_sent_at", "2015-02-09 23:33:19.996441"], ["confirmation_token", "529623d1a75fe6a6675bab9f73d68f70a677c7f6fa492e3c5b5aac2f80f3d9da"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-09 23:33:19.995798"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (0.4ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 6.2ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (2.4ms)
+Date: Mon, 09 Feb 2015 23:33:20 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d943c011c4_8783fd595eef82c12528@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=FmVcFbyZKfP9Qx9hpyLW">Confirm my account</a></p>
+
+  [1m[36m (8.3ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 22ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:33:22 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 148ms (Views: 145.8ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:33:24 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:41:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.8ms)
+
+
+Started PATCH "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:33:36 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:41:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:33:55 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 182ms (Views: 181.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:33:57 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 165ms (Views: 163.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:34:07 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 172ms (Views: 171.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:34:09 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:41:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.6ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:34:09 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:41:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.2ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:35:51 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 11ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:42:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.0ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:35:56 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:42:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:35:56 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:42:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.1ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:36:15 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:42:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:36:19 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 149ms (Views: 147.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:36:21 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 194ms (Views: 192.4ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:36:23 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  Rendered users/finish_signup.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 164ms (Views: 159.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:36:36 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '765bc2b0e6a86645e6912f9c5eb1ff1e94a14dc2f290b28f522b106ee01780ba'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["confirmation_sent_at", "2015-02-09 23:36:36.649551"], ["confirmation_token", "765bc2b0e6a86645e6912f9c5eb1ff1e94a14dc2f290b28f522b106ee01780ba"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-09 23:36:36.648596"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (1.4ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 14.8ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (3.9ms)
+Date: Mon, 09 Feb 2015 23:36:36 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d94484a3975_8783fd5946c83e8126c0@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=DJwxSjDGVm7dNYK8zx9x">Confirm my account</a></p>
+
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 34ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.6ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:39:47 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '8a1d5f4a3d626c73410a6b427f15c3613d9ad5e86bd2e53f7515478414bcf984'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["confirmation_sent_at", "2015-02-09 23:39:47.967870"], ["confirmation_token", "8a1d5f4a3d626c73410a6b427f15c3613d9ad5e86bd2e53f7515478414bcf984"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-09 23:39:47.747624"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (2.7ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 384.9ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (8.3ms)
+Date: Mon, 09 Feb 2015 23:39:48 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d9454459094_8f73ff894ead7e8940f3@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=KMe4NDYg-1pKemjiXTcG">Confirm my account</a></p>
+
+  [1m[35m (7.6ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 692ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.7ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:39:52 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (5.5ms)
+Completed 200 OK in 296ms (Views: 293.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:39:53 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 205ms (Views: 204.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:40:08 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 194ms (Views: 193.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:40:13 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 170ms (Views: 168.3ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:40:20 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered users/finish_signup.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 187ms (Views: 180.2ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:40:36 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnlyCWSy7NqHMcoCsG9d5N3H76730LeVhlpvBTHDuyE=", "user"=>{"email"=>"alexl@versocap.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alexl@versocap.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '92ae592bc78cc7853eb39088ba6ae09703b925150fb1e83dec115413d65289c4'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["confirmation_sent_at", "2015-02-09 23:40:36.475228"], ["confirmation_token", "92ae592bc78cc7853eb39088ba6ae09703b925150fb1e83dec115413d65289c4"], ["unconfirmed_email", "alexl@versocap.com"], ["updated_at", "2015-02-09 23:40:36.474574"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (0.6ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 6.7ms
+
+Sent mail to alexl@versocap.com (5.1ms)
+Date: Mon, 09 Feb 2015 23:40:36 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alexl@versocap.com
+Message-ID: <54d94574764d8_8f73ff894ead0e0941e7@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alexl@versocap.com!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=yLGyDSNpumdVJT4PRzJa">Confirm my account</a></p>
+
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 21ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:58:38 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 472ms (Views: 458.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-09 23:58:41 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-09 23:58:42 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQDrrPZiJX0KQTBpief96T5uxn4TR6jkoIam8Mquav70pajw0ZRQl2yqDaUFbAgEpohmWxS6hTptO-6Gu9cQoIc_eOrXkAyn1ftOnsBe1tkj3-kKhyvqzdokcW9B9vr7D1aPfNIMIFtTM3zkHkhbxerglb7DACymxM6wlV5jvG0JACnZdpEHP6JZhU4DjEaWwV9SZ_-Cx_OPco2V9vIsaKafOfcF_P0hOgVb49ag27zSsmNhfC9bq6_duYHhynh02b5aRrT2pxTEmKAM9acXTVKIMV3mf6X16WUdHaDHnxIrHSQEqgwT5V9m-mkqx4WUAuBmIWDqSIGzJf7flZkgvnep&state=9dbc17d65cbcf06114b36dce2fd9f155f8e2f96d082d9ede" for 127.0.0.1 at 2015-02-09 23:58:51 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDrrPZiJX0KQTBpief96T5uxn4TR6jkoIam8Mquav70pajw0ZRQl2yqDaUFbAgEpohmWxS6hTptO-6Gu9cQoIc_eOrXkAyn1ftOnsBe1tkj3-kKhyvqzdokcW9B9vr7D1aPfNIMIFtTM3zkHkhbxerglb7DACymxM6wlV5jvG0JACnZdpEHP6JZhU4DjEaWwV9SZ_-Cx_OPco2V9vIsaKafOfcF_P0hOgVb49ag27zSsmNhfC9bq6_duYHhynh02b5aRrT2pxTEmKAM9acXTVKIMV3mf6X16WUdHaDHnxIrHSQEqgwT5V9m-mkqx4WUAuBmIWDqSIGzJf7flZkgvnep", "state"=>"9dbc17d65cbcf06114b36dce2fd9f155f8e2f96d082d9ede"}
+  [1m[35mIdentity Load (0.4ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2015-02-09 23:58:52.466081"], ["last_sign_in_at", "2015-02-09 22:50:50.399950"], ["sign_in_count", 3], ["updated_at", "2015-02-09 23:58:52.467203"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 287ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:58:52 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:42:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.9ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:59:29 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:42:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.4ms)
+
+
+Started GET "/users/auth/facebook/callback?code=AQCDeONNoXEDnVZkaiauf8fv75BLFtON_xMqctR9YGDANB13KZVn9wMELBhKjPKIojBUUpQgBu-DcW_eWbXaZdB_n9diBJTwSjQvA-xSiR6Lxz-QEZQl0J2oFevdqKv_ujYEt4ZXC-U1T0cRiro7nvja6mnBM8BD8P8v7Sd5lbC79eHeu4iCg_BF7cGeWBjZe7gHxeuEfEO94bstO8bYDjP4tnKPvbbDuGCGtKRkQpvTBHTJiMylT6yEEcQr_pg0_glXic5KsXh19mch7ye6ikuCiKxrALlgA600JP-JYjI4YC-OtH_FecNgzKj6BnFfME_ShUS2xVuBhu7FGLz9AcAT&state=9dbc17d65cbcf06114b36dce2fd9f155f8e2f96d082d9ede" for 127.0.0.1 at 2015-02-09 23:59:32 +0000
+Processing by OmniauthCallbacksController#failure as HTML
+  Parameters: {"code"=>"AQCDeONNoXEDnVZkaiauf8fv75BLFtON_xMqctR9YGDANB13KZVn9wMELBhKjPKIojBUUpQgBu-DcW_eWbXaZdB_n9diBJTwSjQvA-xSiR6Lxz-QEZQl0J2oFevdqKv_ujYEt4ZXC-U1T0cRiro7nvja6mnBM8BD8P8v7Sd5lbC79eHeu4iCg_BF7cGeWBjZe7gHxeuEfEO94bstO8bYDjP4tnKPvbbDuGCGtKRkQpvTBHTJiMylT6yEEcQr_pg0_glXic5KsXh19mch7ye6ikuCiKxrALlgA600JP-JYjI4YC-OtH_FecNgzKj6BnFfME_ShUS2xVuBhu7FGLz9AcAT", "state"=>"9dbc17d65cbcf06114b36dce2fd9f155f8e2f96d082d9ede"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-09 23:59:37 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-09 23:59:37 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQC9q8HrMgNkaEpM3Ov7dX2PPCrpRMP_n51J80SIBpodF2iANeyCVu35Ohr0RsCCTc_V87p7PhIZQ2Y3j83fLdKp39o3ep7X5I_zQ3ILj78v4GXPDD6wWJEHIuvKjYDTLHTYnnHI2J5DlPTvO0W1jvxiTy1vTTgITyzG7iWI0iwq7Zi4SXRbF0H8alBNRBuGX4snX0pdtfXq6Bt6_l-3kSJe9f7H8Q9Y-uxl-zniKlQ4EERq5rvK415xHldaLAGeCn8FS36v6l-Y2xDCD-1C4v2Cvp-ToH7quN-Gz7TlwzrxFGlHNf4K-gmF5OCdsosSapqI3qV6XNVGUI7EUCy4fuNx&state=b26cc67012192decc1c6aadbdc3169a4d6200376bc98392b" for 127.0.0.1 at 2015-02-09 23:59:37 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQC9q8HrMgNkaEpM3Ov7dX2PPCrpRMP_n51J80SIBpodF2iANeyCVu35Ohr0RsCCTc_V87p7PhIZQ2Y3j83fLdKp39o3ep7X5I_zQ3ILj78v4GXPDD6wWJEHIuvKjYDTLHTYnnHI2J5DlPTvO0W1jvxiTy1vTTgITyzG7iWI0iwq7Zi4SXRbF0H8alBNRBuGX4snX0pdtfXq6Bt6_l-3kSJe9f7H8Q9Y-uxl-zniKlQ4EERq5rvK415xHldaLAGeCn8FS36v6l-Y2xDCD-1C4v2Cvp-ToH7quN-Gz7TlwzrxFGlHNf4K-gmF5OCdsosSapqI3qV6XNVGUI7EUCy4fuNx", "state"=>"b26cc67012192decc1c6aadbdc3169a4d6200376bc98392b"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-09 23:59:38 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:42:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-09 23:59:49 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 205ms (Views: 204.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-09 23:59:51 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (18.6ms)
+Completed 200 OK in 194ms (Views: 192.1ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-10 00:00:44 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-10 00:00:44 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQBztICDxhUr3Y3mye01suc8Vi94UhVRYx5uMEnrdZWVrNN22QaRophauLDUcB3hsCwhtHKgzcl4tb2NCu-OjvjkFH4uBaiG0VXLzPOveTts4catflmD2J8M-Ua1zpEHQ5U6HdThNXiZrdBbLkgb49sW4v7FJapj9bAYEjcW_cUQlK-NpJGdeCUC69us5TtHiarvU5H_npRnlgx9dksKI1Jb85jKNHHDijIgaZCXlYmdLM_DQH2AF8rCumqyu1ghXtD4L3-JiVdiK03iFtFchdFgRVmYh7-gYOAM9IeSrwFPofdBJLj3Et02e9LG8eJhgIk9OcrmjZCY_Tq8UU8e1hLv&state=8d49ff1d595c1285181630206104466b0ca952b9cab590e4" for 127.0.0.1 at 2015-02-10 00:00:44 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBztICDxhUr3Y3mye01suc8Vi94UhVRYx5uMEnrdZWVrNN22QaRophauLDUcB3hsCwhtHKgzcl4tb2NCu-OjvjkFH4uBaiG0VXLzPOveTts4catflmD2J8M-Ua1zpEHQ5U6HdThNXiZrdBbLkgb49sW4v7FJapj9bAYEjcW_cUQlK-NpJGdeCUC69us5TtHiarvU5H_npRnlgx9dksKI1Jb85jKNHHDijIgaZCXlYmdLM_DQH2AF8rCumqyu1ghXtD4L3-JiVdiK03iFtFchdFgRVmYh7-gYOAM9IeSrwFPofdBJLj3Et02e9LG8eJhgIk9OcrmjZCY_Tq8UU8e1hLv", "state"=>"8d49ff1d595c1285181630206104466b0ca952b9cab590e4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-10 00:00:45 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:42:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.6ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-10 00:04:48 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/finish_signup.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 187ms (Views: 176.7ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:04:53 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `update' for nil:NilClass):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.4ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:05:40 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered users/finish_signup.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 192ms (Views: 178.9ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:05:42 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered users/finish_signup.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 174ms (Views: 170.4ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:05:53 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '1f2f6294fb04cdf78b553251eb536c5ce88d3c812bbeb72f7839f4f45c73aaea'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["confirmation_sent_at", "2015-02-10 00:05:54.105076"], ["confirmation_token", "1f2f6294fb04cdf78b553251eb536c5ce88d3c812bbeb72f7839f4f45c73aaea"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-10 00:05:53.910333"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (1.6ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 162.0ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (25.0ms)
+Date: Tue, 10 Feb 2015 00:05:54 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d94b6246c02_24f3fdc55bd8a3c544d6@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=rgqntvv31SmZwmJKsu93">Confirm my account</a></p>
+
+  [1m[35m (0.4ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 412ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.2ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:06:27 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'a9984ca4966639ada8b7707d0156a8b7457c89589316f6917b2349f2045b0f3b'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["confirmation_sent_at", "2015-02-10 00:06:27.295343"], ["confirmation_token", "a9984ca4966639ada8b7707d0156a8b7457c89589316f6917b2349f2045b0f3b"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-10 00:06:27.294467"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (0.3ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 5.7ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (2.7ms)
+Date: Tue, 10 Feb 2015 00:06:27 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d94b834a912_24f3fdc55e206c8545f9@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=XxyV9S_QsRzrwCAyHYeT">Confirm my account</a></p>
+
+  [1m[36m (8.3ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 36ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.6ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:06:50 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'f53e94924b82b1fe7a8d37ee7aa4fa3c0b4318307bd5e380caf4cce427e6197e'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["confirmation_sent_at", "2015-02-10 00:06:50.699881"], ["confirmation_token", "f53e94924b82b1fe7a8d37ee7aa4fa3c0b4318307bd5e380caf4cce427e6197e"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-10 00:06:50.698066"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (0.4ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 5.8ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (2.4ms)
+Date: Tue, 10 Feb 2015 00:06:50 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d94b9aacc33_24f3fdc55e206c85469@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=qxeA9tX9pyiG-HbDHeiJ">Confirm my account</a></p>
+
+  [1m[35m (0.3ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 16ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.8ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:09:42 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'f1b3c3402c2d004b3bd318a45c5ff8ca93aeb5b1d03559fd738f4f616fed14e0'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["confirmation_sent_at", "2015-02-10 00:09:42.162210"], ["confirmation_token", "f1b3c3402c2d004b3bd318a45c5ff8ca93aeb5b1d03559fd738f4f616fed14e0"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-10 00:09:42.161337"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (0.3ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 5.8ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (2.4ms)
+Date: Tue, 10 Feb 2015 00:09:42 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d94c462a2c1_24f3fdc55d6af08547d0@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=Dp1m2SBDzGewexxLr4KK">Confirm my account</a></p>
+
+  [1m[36m (8.4ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 36ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:09:45 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 176ms (Views: 173.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:09:48 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'e4fcb96f6c4d1bed97ef3f3310b9b5a6eb8368c55fe39e57205cb597274cfc60'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["confirmation_sent_at", "2015-02-10 00:09:48.247810"], ["confirmation_token", "e4fcb96f6c4d1bed97ef3f3310b9b5a6eb8368c55fe39e57205cb597274cfc60"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-10 00:09:48.246529"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (0.4ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 5.9ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (2.5ms)
+Date: Tue, 10 Feb 2015 00:09:48 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d94c4c3e88e_24f3fdc55d6af0854839@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=57HdRSynz4XaPFxyoJuB">Confirm my account</a></p>
+
+  [1m[35m (0.2ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 16ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 00:33:20 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (The line was indented 2 levels deeper than the previous line.):
+     9:   %body
+    10: 
+    11:     %nav.ui.fixed.menu.inverted.navbar  
+    12:         = link_to "Home", root_path, class: item
+    13:       - if current_user && current_user.email_verified?
+    14:           = link_to @user.name, edit_user_registration_path, class: item
+    15:       - elsif current_user && !current_user.email_verified?
+  app/views/layouts/application.html.haml:12
+  app/controllers/welcome_controller.rb:5:in `index'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 00:33:21 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (The line was indented 2 levels deeper than the previous line.):
+     9:   %body
+    10: 
+    11:     %nav.ui.fixed.menu.inverted.navbar  
+    12:         = link_to "Home", root_path, class: item
+    13:       - if current_user && current_user.email_verified?
+    14:           = link_to @user.name, edit_user_registration_path, class: item
+    15:       - elsif current_user && !current_user.email_verified?
+  app/views/layouts/application.html.haml:12
+  app/controllers/welcome_controller.rb:5:in `index'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 00:33:32 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (The line was indented 2 levels deeper than the previous line.):
+    11:     %nav.ui.fixed.menu.inverted.navbar  
+    12:       = link_to "Home", root_path, class: item
+    13:       - if current_user && current_user.email_verified?
+    14:           = link_to @user.name, edit_user_registration_path, class: item
+    15:       - elsif current_user && !current_user.email_verified?
+    16:           = link_to "Complete Sign-up", finish_signup_path(current_user.id), class: item
+    17:       - else
+  app/views/layouts/application.html.haml:14
+  app/controllers/welcome_controller.rb:5:in `index'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 00:33:45 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 186ms
+
+ActionView::Template::Error (undefined local variable or method `item' for #<#<Class:0x007fb8a7929e08>:0x007fb8a4c253a8>):
+     9:   %body
+    10: 
+    11:     %nav.ui.fixed.menu.inverted.navbar  
+    12:       = link_to "Home", root_path, class: item
+    13:       - if current_user && current_user.email_verified?
+    14:         = link_to @user.name, edit_user_registration_path, class: item
+    15:       - elsif current_user && !current_user.email_verified?
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___3721456294865067479_70215507290320'
+  app/controllers/welcome_controller.rb:5:in `index'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 00:34:31 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 168ms (Views: 167.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:34:44 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 238ms (Views: 235.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:36:36 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (3.5ms)
+Completed 200 OK in 190ms (Views: 187.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:36:53 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 186ms (Views: 183.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:37:40 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 176ms (Views: 173.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:38:13 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 177ms (Views: 175.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:41:07 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 185ms (Views: 182.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:43:31 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 182ms (Views: 179.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:43:43 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 180ms (Views: 178.1ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:43:46 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered users/finish_signup.html.haml within layouts/application (4.7ms)
+Completed 200 OK in 189ms (Views: 184.3ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:43:49 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered users/finish_signup.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 186ms (Views: 182.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:44:01 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"change@me-2791788213-twitter.com"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/finish_signup.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 217ms (Views: 213.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:44:14 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 178ms (Views: 175.1ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:44:26 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '42840e587fa2540968258ea65e4707a53fc8758d5f717291e6201ff518cb584e'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["confirmation_sent_at", "2015-02-10 00:44:26.140610"], ["confirmation_token", "42840e587fa2540968258ea65e4707a53fc8758d5f717291e6201ff518cb584e"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-10 00:44:26.139787"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (1.0ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 9.9ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (3.1ms)
+Date: Tue, 10 Feb 2015 00:44:26 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d9546a25529_24f3fdc55b49f44549b2@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=5V462Psa-E7H69z1H7o6">Confirm my account</a></p>
+
+  [1m[35m (0.4ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 23ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:45:46 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8kRI1k/xVncM69P0HJIqAWL7M+kX3nXZ/8QHeIvbft8=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'cf5e0d22dc142098177b48d0115cbe02551fc3a790b43f6d3546914d75a3ae65'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["confirmation_sent_at", "2015-02-10 00:45:46.531569"], ["confirmation_token", "cf5e0d22dc142098177b48d0115cbe02551fc3a790b43f6d3546914d75a3ae65"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-10 00:45:46.530536"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (0.4ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 5.7ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (3.3ms)
+Date: Tue, 10 Feb 2015 00:45:46 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54d954ba83c6d_24f3fdc53eb5b945508a@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=tTc6T7aeoNxos1KGJDa-">Confirm my account</a></p>
+
+  [1m[36m (8.0ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 24ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.7ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:45:50 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 184ms (Views: 182.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:46:09 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+Completed 401 Unauthorized in 0ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-10 00:46:09 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.haml (3.2ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (19.0ms)
+Completed 200 OK in 203ms (Views: 200.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-10 00:47:50 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.haml (1.8ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (6.9ms)
+Completed 200 OK in 217ms (Views: 216.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 00:47:53 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.6ms)
+Completed 200 OK in 184ms (Views: 182.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-10 00:48:07 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-10 00:48:07 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQAqBrDwDjU5wBj0a4IBCUAZlpzud3LlPYRD9KiwTSckUPATJV3GZXYv_h7j1vuAMoBRyYgxZD5kDySwsHY8cMbX9cxJq4Uof_IWyetNuaT5cH2Y_pINkjJ00aaNN011FTwQEG405ghnZzo2JggkQOJaAZGDbzuqduIOp4tXhExFpi3s56SF4iK6WmAkabz1RW1dJPL29DrIEqj-efo6n6Ydey6VSJj_U5B3hg9HDkXEyyQK2E8u07TlGskREkzhdKAgG36CmQS4SS18A9vSmt00k-Gx_K2ATJGlXDVMcRsKfPh52RCWQG-C1vYRx36lby8&state=ce14ad8aed5eb0299f270bf4d93697067f120576d2e74bf1" for 127.0.0.1 at 2015-02-10 00:48:27 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAqBrDwDjU5wBj0a4IBCUAZlpzud3LlPYRD9KiwTSckUPATJV3GZXYv_h7j1vuAMoBRyYgxZD5kDySwsHY8cMbX9cxJq4Uof_IWyetNuaT5cH2Y_pINkjJ00aaNN011FTwQEG405ghnZzo2JggkQOJaAZGDbzuqduIOp4tXhExFpi3s56SF4iK6WmAkabz1RW1dJPL29DrIEqj-efo6n6Ydey6VSJj_U5B3hg9HDkXEyyQK2E8u07TlGskREkzhdKAgG36CmQS4SS18A9vSmt00k-Gx_K2ATJGlXDVMcRsKfPh52RCWQG-C1vYRx36lby8", "state"=>"ce14ad8aed5eb0299f270bf4d93697067f120576d2e74bf1"}
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2015-02-10 00:48:28.637187"], ["last_sign_in_at", "2015-02-09 23:58:52.466081"], ["sign_in_count", 4], ["updated_at", "2015-02-10 00:48:28.637637"]]
+  [1m[35m (8.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 19ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-10 00:48:28 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:42:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.8ms)
+
+
+Started GET "/users/auth/facebook/callback?code=AQBVcgUe3FbbDrzeD_GnEbz3mTpkcS9WjxY-30Fc38c3A5WEvR8l9XkTa-cNPUkiX25dkjzyDjfp0wsU1G4rcW5i2K5ElCq7nK_qd7koHpC42oqzuNrl3JgLyqrlYytBIcngDFU_Prp_YlrqwJEKUiQ9Fgh6MhYGHoAW9uNTEljb1kiHEFi6QiXK_60oCq0fKTLaMnfv-YVmL9SaIi0B1yDQg1gVH6f9_Y7ee4gcdIy8jqeLOkw57AZitqKygZP6P2SMwkorkIAlWK6FM9OxC8Ra0NY1zOAL-6UrVlCSF7genOp4TZlEpmWhhFhbcHeY0B0jx6BLTGCIt3nXQwJqR7sk&state=ce14ad8aed5eb0299f270bf4d93697067f120576d2e74bf1" for 127.0.0.1 at 2015-02-10 00:48:36 +0000
+Processing by OmniauthCallbacksController#failure as HTML
+  Parameters: {"code"=>"AQBVcgUe3FbbDrzeD_GnEbz3mTpkcS9WjxY-30Fc38c3A5WEvR8l9XkTa-cNPUkiX25dkjzyDjfp0wsU1G4rcW5i2K5ElCq7nK_qd7koHpC42oqzuNrl3JgLyqrlYytBIcngDFU_Prp_YlrqwJEKUiQ9Fgh6MhYGHoAW9uNTEljb1kiHEFi6QiXK_60oCq0fKTLaMnfv-YVmL9SaIi0B1yDQg1gVH6f9_Y7ee4gcdIy8jqeLOkw57AZitqKygZP6P2SMwkorkIAlWK6FM9OxC8Ra0NY1zOAL-6UrVlCSF7genOp4TZlEpmWhhFhbcHeY0B0jx6BLTGCIt3nXQwJqR7sk", "state"=>"ce14ad8aed5eb0299f270bf4d93697067f120576d2e74bf1"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-10 00:53:22 +0000
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/users/1/finish_signup
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:53:22 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 187ms (Views: 185.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:53:50 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 184ms (Views: 181.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:55:58 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 179ms (Views: 176.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 00:56:03 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 189ms (Views: 186.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 01:00:01 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 182ms (Views: 179.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:00:13 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 01:00:13 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 195ms (Views: 194.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 01:00:27 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 173ms (Views: 172.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:00:29 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (9.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (15.0ms)
+Completed 200 OK in 193ms (Views: 192.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:01:41 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (5.6ms)
+Completed 200 OK in 178ms (Views: 176.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:03:42 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (7.8ms)
+Completed 200 OK in 211ms (Views: 210.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:05:29 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.4ms)
+Completed 200 OK in 204ms (Views: 202.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:07:43 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.9ms)
+Completed 200 OK in 189ms (Views: 188.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:08:01 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (2.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (13.2ms)
+Completed 200 OK in 288ms (Views: 285.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:12:07 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (7.2ms)
+Completed 200 OK in 223ms (Views: 222.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:13:37 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 9ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:13:57 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:14:17 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:15:21 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:15:31 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:15:37 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.1ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:17:26 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:17:34 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.4ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 01:18:02 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+Completed 401 Unauthorized in 0ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-10 01:18:02 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.8ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 178ms (Views: 176.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 01:18:06 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 171ms (Views: 171.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:18:07 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.9ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:18:08 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:18:41 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:27: syntax error, unexpected keyword_do_block
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:27: syntax error, unexpected keyword_do_block
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:19:00 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (5.7ms)
+Completed 200 OK in 190ms (Views: 188.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:19:16 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 35ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:20:08 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (6.1ms)
+Completed 200 OK in 182ms (Views: 180.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:20:20 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (2.1ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (21.1ms)
+Completed 200 OK in 319ms (Views: 316.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:20:47 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (9.1ms)
+Completed 200 OK in 203ms (Views: 201.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:21:10 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (1.0ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (14.8ms)
+Completed 200 OK in 296ms (Views: 294.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:21:55 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (3.1ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (11.9ms)
+Completed 200 OK in 333ms (Views: 329.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:22:05 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (2.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (17.8ms)
+Completed 200 OK in 301ms (Views: 300.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:22:56 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (The line was indented 2 levels deeper than the previous line.):
+    25:               %i.lock.icon
+    26:           %div
+    27:             
+    28:               = f.submit "Sign up", class: " ui left icon button blue submit"
+    29:               %i.mail.icon
+    30:             = render "devise/shared/links"
+  app/views/devise/registrations/new.html.haml:28
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:23:06 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/devise/registrations/new.html.haml:31: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:23:14 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (7.9ms)
+Completed 200 OK in 192ms (Views: 190.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:23:27 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 17ms
+
+SyntaxError (/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:28: syntax error, unexpected ')'
+));}\n          <i class='mail icon'></i>\n          #{
+ ^
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:28: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+));}\n          <i class='mail icon'></i>\n          #{
+                        ^
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:28: syntax error, unexpected '<'
+));}\n          <i class='mail icon'></i>\n          #{
+                                      ^
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:30: unknown regexp options - dv
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:30: syntax error, unexpected $undefined
+));}\n        </div>\n", -1, false);end;_hamlout.b...
+                     ^
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:30: syntax error, unexpected $undefined, expecting keyword_end
+...aml_temp);_hamlout.push_text("\n      </div>\n    </div>\n  ...
+...                               ^
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:30: unknown regexp options - dv
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:30: syntax error, unexpected $undefined
+...xt("\n      </div>\n    </div>\n  </div>\n</div>\n", -4, fal...
+...                               ^
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:30: unknown regexp options - dv
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:30: syntax error, unexpected $undefined
+...\n    </div>\n  </div>\n</div>\n", -4, false);::Haml::Util.h...
+...                               ^
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:30: unterminated string meets end of file
+/Users/alexanderlewis/code/blocipedia/app/views/devise/registrations/new.html.haml:30: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/devise/registrations/new.html.haml:28: syntax error, unexpected ')'
+  app/views/devise/registrations/new.html.haml:28: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+  app/views/devise/registrations/new.html.haml:28: syntax error, unexpected '<'
+  app/views/devise/registrations/new.html.haml:30: unknown regexp options - dv
+  app/views/devise/registrations/new.html.haml:30: syntax error, unexpected $undefined
+  app/views/devise/registrations/new.html.haml:30: syntax error, unexpected $undefined, expecting keyword_end
+  app/views/devise/registrations/new.html.haml:30: unknown regexp options - dv
+  app/views/devise/registrations/new.html.haml:30: syntax error, unexpected $undefined
+  app/views/devise/registrations/new.html.haml:30: unknown regexp options - dv
+  app/views/devise/registrations/new.html.haml:30: syntax error, unexpected $undefined
+  app/views/devise/registrations/new.html.haml:30: unterminated string meets end of file
+  app/views/devise/registrations/new.html.haml:30: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:23:35 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (7.2ms)
+Completed 200 OK in 191ms (Views: 189.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:24:21 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (3.3ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (26.9ms)
+Completed 200 OK in 309ms (Views: 308.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:26:33 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (2.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.2ms)
+Completed 200 OK in 295ms (Views: 293.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:31:30 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (3.1ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (13.0ms)
+Completed 200 OK in 205ms (Views: 202.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:31:55 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (2.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (18.8ms)
+Completed 200 OK in 274ms (Views: 267.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:32:47 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (37.1ms)
+Completed 200 OK in 200ms (Views: 199.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:35:01 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (1.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (14.9ms)
+Completed 200 OK in 274ms (Views: 272.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:35:22 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (1.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (14.2ms)
+Completed 200 OK in 257ms (Views: 255.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:35:58 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (4.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (20.3ms)
+Completed 200 OK in 326ms (Views: 323.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:36:39 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (2.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (26.0ms)
+Completed 200 OK in 268ms (Views: 266.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:37:36 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.5ms)
+Completed 200 OK in 207ms (Views: 204.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:38:46 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (3.7ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (26.5ms)
+Completed 200 OK in 296ms (Views: 293.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:39:18 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (3.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (21.5ms)
+Completed 200 OK in 313ms (Views: 310.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:39:50 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (11.2ms)
+Completed 200 OK in 274ms (Views: 270.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:40:36 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (3.1ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (21.8ms)
+Completed 200 OK in 273ms (Views: 272.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:42:42 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 196ms (Views: 194.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 01:43:07 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 241ms (Views: 240.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:43:11 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 163ms (Views: 162.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-10 01:43:13 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-10 01:43:14 +0000
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:44:24 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (3.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (8.6ms)
+Completed 200 OK in 254ms (Views: 250.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:44:41 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 25ms
+
+ActionView::Template::Error (Indenting at the beginning of the document is illegal.):
+    1:   .ui.two.column.middle.aligned.relaxed.fitted.stackable.grid
+    2:     .column
+    3:       .center.aligned
+    4:         %h2 Sign up with E-mail
+  app/views/devise/registrations/new.html.haml:1
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:45:20 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.3ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (6.4ms)
+Completed 200 OK in 183ms (Views: 181.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:46:18 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (1.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (17.5ms)
+Completed 200 OK in 284ms (Views: 281.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:47:08 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (1.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (24.7ms)
+Completed 200 OK in 293ms (Views: 291.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:47:28 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (15.6ms)
+Completed 200 OK in 284ms (Views: 282.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-10 01:48:24 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.3ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (3.5ms)
+Completed 200 OK in 207ms (Views: 206.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 01:49:23 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 236ms (Views: 235.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 01:50:01 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 181ms (Views: 180.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 22:08:06 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 166ms (Views: 165.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 22:08:34 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 178ms (Views: 177.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 22:09:15 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 174ms (Views: 173.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 22:09:32 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 179ms (Views: 178.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 22:10:04 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 177ms (Views: 176.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 22:10:16 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 173ms (Views: 171.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 22:10:40 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 184ms (Views: 183.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 22:11:16 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 164ms (Views: 163.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-10 22:12:24 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.5ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (3.5ms)
+Completed 200 OK in 192ms (Views: 190.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in_" for 127.0.0.1 at 2015-02-10 22:12:35 +0000
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_in_"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (33.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-10 22:12:45 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.5ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 157ms (Views: 155.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-10 22:13:21 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.6ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (7.3ms)
+Completed 200 OK in 178ms (Views: 177.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-10 22:13:33 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.4ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 175ms (Views: 173.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 22:13:36 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 160ms (Views: 159.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-10 22:13:38 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.5ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 154ms (Views: 153.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-10 22:13:40 +0000
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-10 22:13:41 +0000
+
+
+Started GET "/users/auth/twitter/callback?oauth_token=a8uuRxvNmJ0MoOW44faOSMxGWSakfCK5&oauth_verifier=8txhQWAGDnu8seEOhoc4YpS1Rg1TzEgj" for 127.0.0.1 at 2015-02-10 22:14:21 +0000
+Processing by OmniauthCallbacksController#twitter as HTML
+  Parameters: {"oauth_token"=>"a8uuRxvNmJ0MoOW44faOSMxGWSakfCK5", "oauth_verifier"=>"8txhQWAGDnu8seEOhoc4YpS1Rg1TzEgj"}
+  [1m[35mIdentity Load (0.2ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '2791788213' AND "identities"."provider" = 'twitter' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2015-02-10 22:14:23.029705"], ["last_sign_in_at", "2015-02-10 00:48:28.637187"], ["sign_in_count", 5], ["updated_at", "2015-02-10 22:14:23.030202"]]
+  [1m[35m (9.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 16ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-10 22:14:23 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=alex):
+  app/controllers/users_controller.rb:42:in `set_user'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-10 22:14:33 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 178ms (Views: 175.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:14:38 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 177ms (Views: 175.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:16:39 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 167ms (Views: 165.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:19:52 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 182ms (Views: 179.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:20:39 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (6.8ms)
+Completed 200 OK in 252ms (Views: 247.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:21:41 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (7.0ms)
+Completed 200 OK in 249ms (Views: 245.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:22:39 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (6.7ms)
+Completed 200 OK in 278ms (Views: 269.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:22:50 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (6.4ms)
+Completed 200 OK in 266ms (Views: 259.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:23:00 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 268ms (Views: 264.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:23:44 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (7.7ms)
+Completed 200 OK in 250ms (Views: 245.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:24:00 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (8.2ms)
+Completed 200 OK in 321ms (Views: 309.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:24:15 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (15.0ms)
+Completed 200 OK in 311ms (Views: 308.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:24:25 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (8.3ms)
+Completed 200 OK in 317ms (Views: 313.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:24:32 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/finish_signup.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 231ms (Views: 228.1ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/1/finish_signup" for 127.0.0.1 at 2015-02-10 22:24:43 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jZgEpfi59TF8aistiKnxF8aN+A6vY+OsMbGwrVNGezg=", "user"=>{"email"=>"alex.lewis79@yahoo.co.uk"}, "commit"=>"Complete Signup", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alex.lewis79@yahoo.co.uk' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'e32c8a0aa7387cd19e8ebae0c1262610cd4f5e0a39744361f32d5b7947c309d5'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["confirmation_sent_at", "2015-02-10 22:24:43.886421"], ["confirmation_token", "e32c8a0aa7387cd19e8ebae0c1262610cd4f5e0a39744361f32d5b7947c309d5"], ["unconfirmed_email", "alex.lewis79@yahoo.co.uk"], ["updated_at", "2015-02-10 22:24:43.885461"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (0.6ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 13.7ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (194.2ms)
+Date: Tue, 10 Feb 2015 22:24:43 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54da852bdc713_24f3fdc572700ec5518b@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=o3SyD5fZkVZTckCyEyaV">Confirm my account</a></p>
+
+  [1m[35m (7.9ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 224ms
+
+SocketError (getaddrinfo: nodename nor servname provided, or not known):
+  app/controllers/users_controller.rb:23:in `finish_signup'
+
+
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/alexanderlewis/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.5ms)

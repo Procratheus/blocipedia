@@ -7,22 +7,29 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %ul
-      %li
-        = link_to "Home", root_path
-      - if current_user && current_user.email_verified?
-        %li
-          = link_to @user.name, edit_user_registration_path
-      - elsif current_user && !current_user.email_verified?
-        %li
-          = link_to "Complete Sign-up", finish_signup_path
-      - else
-        %li
-          = link_to "Sign-up with twitter", user_omniauth_authorize_path(:twitter)
-        %li
-          = link_to "Sign-up with facebook", user_omniauth_authorize_path(:facebook)
-    
+    .ui.grid
+      %nav.ui.fixed.menu.blue.navbar
+        = link_to "Home", root_path, class: "item"
+        = link_to "About", "#", class: "item"
+        = link_to "Contact Us", "#", class: "item"
+        - if current_user && current_user.email_verified?
+          = link_to @user.name, edit_user_registration_path, class: "item right"
+        - elsif current_user && !current_user.email_verified?
+          = link_to "Complete Sign-up", finish_signup_path(current_user.id), class: "item right"
+        - else
+          .item.right
+          = link_to new_user_session_path, class: "item right" do
+            %i.mail.icon
+          = link_to user_omniauth_authorize_path(:twitter), class: "item right" do 
+            %i.twitter.icon
+          = link_to user_omniauth_authorize_path(:facebook), class: "item right" do
+            %i.facebook.icon
+          .item.right
+            Sign In
+      .ui.page.grid.main
+        .row
+          .column.padding.reset
+            = yield
 
-
-    = yield
+  
   

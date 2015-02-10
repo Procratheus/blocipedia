@@ -1,16 +1,22 @@
-%h1 Add Email
-
-= form_for(current_user, :as => "user", :url => finish_signup_path(current_user), :html => { role: "form" }) do |f|
-  - if @show_errors && current_user.errors.any?
-    %div
-      current_user.errors.full_messages.each do |msg|
-      = msg 
-      %br
-
-  %div
-    = f.label :email
-    = f.text_field :email, autofocus: true, placeholder: "email@example.com"
-  %div
-    = f.submit "Complete Signup"
+%div
+  .ui.two.column.middle.aligned.relaxed.fitted.stackable.grid
+    .column
+      .center.aligned
+        %h1 Add Email
+        %h4 Add vaild email address to complete the sign-up process
+      .ui.form.segment
+        = form_for(current_user, :as => "user", :url => finish_signup_path(current_user.id), :html => { role: "form" }) do |f|
+          - if @show_errors && current_user.errors.any?
+            .field
+              current_user.errors.full_messages.each do |msg|
+              = msg 
+              %br
+          .field
+            = f.label :email
+            .ui.left.icon.input
+              = f.email_field :email, autofocus: true, placeholder: "email@example.com"
+              %i.user.icon
+          %div
+            = f.submit "Complete Signup", class: "ui left button blue submit"
 
         
