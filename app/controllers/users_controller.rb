@@ -21,9 +21,9 @@ class UsersController < ApplicationController
   def finish_signup
     if request.patch? && params[:user]
       if @user.update(user_params)
-        @user.skip_reconfirmation!
+        #@user.skip_reconfirmation!
         sign_in(@user, bypass: true)
-        redirect_to @user
+        redirect_to edit_user_registration_path
         flash[:info] = "You have updated your user profile succesfully"
       else
         @show_errors = true
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   private
 
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find_by(name: current_user.name)
     end
 
     def user_params

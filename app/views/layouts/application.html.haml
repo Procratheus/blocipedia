@@ -13,7 +13,8 @@
         = link_to "About", about_path, class: "item"
         = link_to "Contact Us", contact_path, class: "item"
         - if current_user && current_user.email_verified?
-          = link_to @user.name, edit_user_registration_path, class: "item right"
+          = link_to current_user.name, edit_user_registration_path, class: "item right"
+          = link_to "Log out", destroy_user_session_path, method: :delete, class: "item right"
         - elsif current_user && !current_user.email_verified?
           = link_to "Complete Sign-up", finish_signup_path(current_user), class: "item right"
         - else
