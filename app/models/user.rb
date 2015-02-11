@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   friendly_id :name, use: :slugged
   
   # Model Associations
-  has_many :identities
+  has_many :identities, dependent: :destroy
 
   # Validations
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
