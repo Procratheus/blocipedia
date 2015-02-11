@@ -19,14 +19,14 @@
           = link_to "Complete Sign-up", finish_signup_path(current_user), class: "item right"
         - else
           .item.right
-          = link_to new_user_session_path, class: "item right" do
-            %i.mail.icon
           = link_to user_omniauth_authorize_path(:twitter), class: "item right" do 
             %i.twitter.icon
           = link_to user_omniauth_authorize_path(:facebook), class: "item right" do
             %i.facebook.icon
+          = link_to new_user_session_path, class: "item right" do
+            %i.mail.icon
           .item.right
-            Sign In
+            Sign In with
       .ui.page.grid.main
         .row
           .column.padding.reset

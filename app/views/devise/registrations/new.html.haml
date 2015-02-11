@@ -39,11 +39,11 @@
     .center.aligned.column
       %h2 Sign up with social media
       .ui.form.segment
-        .ui.huge.facebook.button
+        .ui.huge.facebook.button.textwhite
           = link_to user_omniauth_authorize_path(:facebook) do
             %i.facebook.icon
             facebook      
-        .ui.huge.twitter.button
+        .ui.huge.twitter.button.textwhite
           = link_to user_omniauth_authorize_path(:twitter) do
             %i.twitter.icon
             twitter
