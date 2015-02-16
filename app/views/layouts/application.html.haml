@@ -8,7 +8,7 @@
     = csrf_meta_tags
   %body
     .ui.grid
-      %nav.ui.fixed.menu.blue.navbar
+      %nav.ui.fixed.menu.inverted.navbar
         = link_to "Home", root_path, class: "item"
         = link_to "About", about_path, class: "item"
         = link_to "Contact Us", contact_path, class: "item"
@@ -27,10 +27,11 @@
             %i.mail.icon
           .item.right
             Sign In with
-      .ui.page.grid.main
-        .row
-          .column.padding.reset
-            = yield
+    = yield
+    .row
+      .column
+        .ui.divider
+
 
   
   

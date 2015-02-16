@@ -1,6 +1,38 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
-
-= link_to "Sign-up", new_user_registration_path, class: "item right"
- 
-  
+.ui.grid
+  .row
+    .column.padding-creset
+      .ui.huge.message.page.grid
+        %br/
+        %br/
+        %h1.ui.huge.header
+          Blocipedia: Social, Markdown Wikis
+        %p
+          Create and share wikis with your friends and the world
+        = link_to "Sign-up", new_user_registration_path, class: "ui left button blue submit"        
+  .ui.segment
+    .ui.page.grid
+      .ui.two.column.row
+        .column
+          %h2.ui.header
+            Create as any public wikis as you want!
+        .column
+          %h2.ui.header
+            Create private wikis!
+  .ui.hidden.divider
+  .ui.segment
+    .ui.page.grid
+      .ui.two.column.row
+        .column
+          .center.aligned
+            .ui.circular.segment.right
+              %h2.ui.header
+                Free
+                .sub.header
+                  £10.99
+        .column
+          .center.aligned
+            .ui.circular.segment.right
+              %h2.ui.header
+                Premium
+                .sub.header
+                  £10.99

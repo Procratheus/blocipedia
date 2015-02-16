@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   
   # Model Associations
   has_many :identities, dependent: :destroy
+  has_many :wikis, dependent: :destroy
 
   # Validations
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
