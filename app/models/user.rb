@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  TEMP_EMAIL_PREFIX = "change@me"
-  TEMP_EMAIL_REGEX = /\Achange@me/
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -20,6 +18,8 @@ class User < ActiveRecord::Base
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
   
   # Omniauth Setup
+  TEMP_EMAIL_PREFIX = "change@me"
+  TEMP_EMAIL_REGEX = /\Achange@me/
   def self.find_for_oauth(auth, signed_in_resource = nil)
     
     identity = Identity.find_for_oauth(auth)
@@ -50,6 +50,25 @@ class User < ActiveRecord::Base
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  # Establish User Roles
+  after_initialize :set_default_user
+
+  def set_default_user
+    self.role == "public" if self.role.nil?  
+  end
+
+  def public?
+    role == "public"
+  end
+
+  def premium?
+    role == "premium"
+  end
+
+  def admin?
+    role == "admin"
   end
 
 end
