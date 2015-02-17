@@ -1,8 +1,8 @@
-.ui.grid
+.ui.page.grid
   .ui.column.middle.aligned.relaxed.fitted.stackable.grid
     .center.aligned
       %h2 
-        = link_to "Edit your #{@wiki.name} Wiki"
+        = link_to "Edit' #{@wiki.title}'"
     .ui.form.segment
       = form_for @wiki do |f|
         .field
@@ -15,4 +15,4 @@
           = f.label :body
           = f.text_area :body
         .field
-          f.submit "Create", class: "ui button blue submit"
+          = f.submit "Update", class: "ui button blue submit"

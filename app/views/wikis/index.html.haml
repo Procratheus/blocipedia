@@ -1,51 +1,55 @@
-.ui.grid
-  .ui.page.grid
-    .ui.two.column.middle.aligned.relaxed.fitted.stackable.grid
-      .column
-        .ui.segment
-          %h2.ui.left.floated.header
-          .ui.clearing.divider
-          %table.ui.table
-            %thead
+
+.ui.page.grid
+  .ui.two.column.middle.aligned.relaxed.fitted.stackable.grid
+    .column
+      .ui.segment
+        %h2.ui.left.floated.header
+          Public Wikis
+        .ui.clearing.divider
+        %table.ui.table
+          %thead
+            %tr
+              %th Title
+              %th Description
+              %th Created
+              %th Edit
+              %th Delete
+          %tbody
+            - @wikis.each do |x|
               %tr
-                %th Title
-                %th Description
-                %th Created
-                %th Edit
-                %th Delete
-            %tbody
-              = @wiki.each do |x|
-                %tr x.title
-                %tr x.description
-                %tr x.created_at
-                %tr link_to "Edit", x
-                %tr link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}      
-      .ui.vertical.divider
-      .column
-        .ui.segment
-          %h2.ui.left.floated.header
-          .ui.clearing.divider
-          %table.ui.table
-            %thead
-              %tr
-                %th Title
-                %th Description
-                %th Created
-                %th Edit
-                %th Delete
-            %tbody
-              = @wiki.each do |x|
-                %tr x.title
-                %tr x.description
-                %tr x.created_at
-                %tr link_to "Edit", x
-                %tr link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}      
+                %td= link_to x.title, wiki_path(x)
+                %td= x.description
+                %td= x.created_at
+                %td= link_to "Edit", x
+                %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}      
+    .ui.vertical.divider
+      &
+    .center.aligned.column
+      %h2.ui.left.floated.header
+        Private Wikis
+      .ui.clearing.divider
+      %table.ui.table
+        %thead
+          %tr
+            %th Title
+            %th Description
+            %th Created
+            %th Edit
+            %th Delete
+        %tbody
+          - @wikis.each do |x|
+            %tr
+              %td= link_to x.title, wiki_path(x)
+              %td= x.description
+              %td= x.created_at
+              %td= link_to "Edit", x
+              %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}      
 
 
 
 
 
-      
+    
 
 
 

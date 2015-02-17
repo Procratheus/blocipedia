@@ -66,9 +66,20 @@ body{
 
 /* Style the boxes on the front page */
 
-.ui.circular.segment{
+.ui .circular .segment{
   background: #e9faff;
 }
+
+.divider {
+  position: relative;
+}
+
+.box-shadow {
+  border: 1px solid #d8dee2;
+  padding: 10px 10px 10px 10px;
+}
+
+
 
 
 

@@ -1,2 +1,20 @@
-%h1 Wikis#show
-%p Find me in app/views/wikis/show.html.haml
+
+.ui.page.grid
+  .ui.column.middle.aligned.relaxed.fitted.stackable.grid
+    .center.aligned
+      %br/
+      %h1.ui.header 
+        Title: = #{@wiki.title}     
+    .ui.form.segment
+      .field
+        %h3.ui.header
+          Description: #{@wiki.description}
+      .field
+        %h4
+          Contents:
+        %p.box-shadow
+          = @wiki.body
+      .segment
+        %br/
+        = link_to "Edit", edit_wiki_path(@wiki), class: "ui yellow button"
+

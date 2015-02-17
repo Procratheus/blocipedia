@@ -2,7 +2,7 @@ class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wiki = Wiki.all
+    @wikis = Wiki.all
   end
 
   def show
@@ -16,7 +16,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.new(wiki_params)
     if @wiki.save
       flash[:notice] = "Your #{@wiki.title} Wiki was successfully created."
-      redirect_to @wiki
+      redirect_to wikis_path
     else
       flash[:error] = "Your Wiki was not created. Please try again."
       redirect_to :new
@@ -28,7 +28,7 @@ class WikisController < ApplicationController
 
   def update
     @wiki.update(wiki_params)
-    if @wiki.update
+    if @wiki.save
       flash[:notice] = "Your #{@wiki.title} Wiki was successfully updated."
       redirect_to @wiki
     else
@@ -40,7 +40,7 @@ class WikisController < ApplicationController
   def destroy
     if @wiki.destroy
       flash[:notice] = "Your #{@wiki.title} Wiki was deleted."
-      redirect_to :index
+      redirect_to wikis_path
     else
       flash[:error] = "Your #{@wiki.title} Wiki was not deleted. Please try again."
     end
