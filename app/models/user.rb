@@ -1,10 +1,14 @@
 class User < ActiveRecord::Base
+  after_initialize :set_default_user
+
+  TEMP_EMAIL_PREFIX = "change@me"
+  TEMP_EMAIL_REGEX = /\Achange@me/
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :trackable, :validatable, :confirmable,
-        :omniauthable, :omniauth_providers => [:twitter, :facebook]
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
+         :omniauthable, :omniauth_providers => [:twitter, :facebook]
  
   # Setup Friendly_id
   extend FriendlyId 
@@ -16,10 +20,8 @@ class User < ActiveRecord::Base
 
   # Validations
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
-  
+
   # Omniauth Setup
-  TEMP_EMAIL_PREFIX = "change@me"
-  TEMP_EMAIL_REGEX = /\Achange@me/
   def self.find_for_oauth(auth, signed_in_resource = nil)
     
     identity = Identity.find_for_oauth(auth)
@@ -53,10 +55,9 @@ class User < ActiveRecord::Base
   end
 
   # Establish User Roles
-  after_initialize :set_default_user
 
   def set_default_user
-    self.role == "public" if self.role.nil?  
+    self.role = "public" if self.role.nil?  
   end
 
   def public?
