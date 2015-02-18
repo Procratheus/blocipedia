@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         #@user.skip_reconfirmation!
         sign_in(@user, bypass: true)
-        redirect_to edit_user_registration_path
+        redirect_to root_path
         flash[:info] = "You have updated your user profile succesfully"
       else
         @show_errors = true
@@ -38,14 +38,14 @@ class UsersController < ApplicationController
 
   private
 
-    def set_user
-      @user = User.find_by(name: current_user.name)
-    end
+  def set_user
+    @user = User.find_by(name: current_user.name)
+  end
 
-    def user_params
-      accessible = [ :name, :email ]
-      accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
-      params.require(:user).permit(accessible)
-    end
+  def user_params
+    accessible = [ :name, :email ]
+    accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
+    params.require(:user).permit(accessible)
+  end
 
 end

@@ -1,0 +1,1209 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 22:24:47 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 555ms (Views: 540.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 22:24:50 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 241ms (Views: 240.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-17 22:24:55 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-17 22:24:55 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQDgrzhtFYfunpB51g0cKzVVHu9ZoSLQH4pj-el6yGyHkX_rZGAIMIDGosb2m3T2CNN3IID6A3tDMRDGer_rY7HclVUjcfR7wicG6chgbAsRzyzHFzvaP8upaXS_rZD6zrVSe4WnZCIb6LVeEULyVm6p4OygoKy7IDnKUoX9jerBMbAD4RyhmexEur-NavQwaF9r-BrLyeMBszY9HRGfLqhXaOpGnRhZqjY6U0GPHktOGQGbjDQRUNqzyNqD6hY4W8PoaHVssQtfAwGQx4YjbX9cIV5wHSfkWZrW6QVGOf7VnEJuagpSQ4BXszTeI04NN8-BUpp_zDzIdxD24onnFcbL&state=b47cca5aaf304fb0f80e4115e65a1b2e2f41290bf22b9216" for 127.0.0.1 at 2015-02-17 22:24:56 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDgrzhtFYfunpB51g0cKzVVHu9ZoSLQH4pj-el6yGyHkX_rZGAIMIDGosb2m3T2CNN3IID6A3tDMRDGer_rY7HclVUjcfR7wicG6chgbAsRzyzHFzvaP8upaXS_rZD6zrVSe4WnZCIb6LVeEULyVm6p4OygoKy7IDnKUoX9jerBMbAD4RyhmexEur-NavQwaF9r-BrLyeMBszY9HRGfLqhXaOpGnRhZqjY6U0GPHktOGQGbjDQRUNqzyNqD6hY4W8PoaHVssQtfAwGQx4YjbX9cIV5wHSfkWZrW6QVGOf7VnEJuagpSQ4BXszTeI04NN8-BUpp_zDzIdxD24onnFcbL", "state"=>"b47cca5aaf304fb0f80e4115e65a1b2e2f41290bf22b9216"}
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Exists (0.2ms)[0m  SELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "identities" ("created_at", "provider", "uid", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-17 22:24:56.641040"], ["provider", "facebook"], ["uid", "833238006715005"], ["updated_at", "2015-02-17 22:24:56.641040"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'alex.lewis79@yahoo.co.uk'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."id" IS NOT NULL) AND "users"."slug" = 'alex-lewis' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'alex.lewis79@yahoo.co.uk' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "email", "encrypted_password", "name", "slug", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmed_at", "2015-02-17 22:24:56.745486"], ["created_at", "2015-02-17 22:24:57.077097"], ["email", "alex.lewis79@yahoo.co.uk"], ["encrypted_password", "$2a$10$XOCdjR0Pmy4q3z4D6PDSP.4a9eRCcfGFT.8OaNCKpjkie1H.cw9Za"], ["name", "Alex Lewis"], ["slug", "alex-lewis"], ["updated_at", "2015-02-17 22:24:57.077097"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Exists (0.1ms)[0m  SELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '833238006715005' AND "identities"."id" != 4 AND "identities"."provider" = 'facebook') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "identities" SET "updated_at" = ?, "user_id" = ? WHERE "identities"."id" = 4[0m  [["updated_at", "2015-02-17 22:24:57.080992"], ["user_id", 8]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 8  [["current_sign_in_at", "2015-02-17 22:24:57.083512"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2015-02-17 22:24:57.083512"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-02-17 22:24:57.084497"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/wikis
+Completed 302 Found in 488ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2015-02-17 22:24:57 +0000
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 8  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+  Rendered wikis/index.html.haml within layouts/application (7.9ms)
+Completed 200 OK in 276ms (Views: 269.6ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-02-17 22:25:00 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+i1B4te+0xg+0vAql6Z4g7BccGKTYc5uoVGXoeouR/g="}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 8  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 22:25:00 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 246ms (Views: 244.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 22:35:34 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (5.1ms)
+Completed 200 OK in 711ms (Views: 697.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-17 22:35:38 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-17 22:35:38 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQBNEDjswNlBY_Qn9ehzCpzs-CZV5WMb7Z05Rp51XaDKPQSyzW_M3CxUExfLtyKfL7gmnSv61sn2CKTQXGnfzaPb-r8VMen1l-d2CvcXAOcJXMYhCfKU7Y_GyGVh7x3A-7RL4rwuoU1BUlzXW-CTsw6b0vjYCtEu0c15vLeQAUrRwSyvcONJHvz0EchEhocjnsUcj-x03QlLlZmiWtSJTHrIYHHnZVVPK4WTQGmvqHbPEuDvej-RFkBeKkxcOdOqXVMapHbmPN57dkoSv9k1pjQt-7ZJoUeELnL9wLcPKMjYTOw_trUZEN7Vd1fL0gbNd-Yk4L8vJ-Y1W27Ga82gxRAb&state=5e819627a3624b2a0ac970c9ff175d2864b81db038016eef" for 127.0.0.1 at 2015-02-17 22:35:45 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBNEDjswNlBY_Qn9ehzCpzs-CZV5WMb7Z05Rp51XaDKPQSyzW_M3CxUExfLtyKfL7gmnSv61sn2CKTQXGnfzaPb-r8VMen1l-d2CvcXAOcJXMYhCfKU7Y_GyGVh7x3A-7RL4rwuoU1BUlzXW-CTsw6b0vjYCtEu0c15vLeQAUrRwSyvcONJHvz0EchEhocjnsUcj-x03QlLlZmiWtSJTHrIYHHnZVVPK4WTQGmvqHbPEuDvej-RFkBeKkxcOdOqXVMapHbmPN57dkoSv9k1pjQt-7ZJoUeELnL9wLcPKMjYTOw_trUZEN7Vd1fL0gbNd-Yk4L8vJ-Y1W27Ga82gxRAb", "state"=>"5e819627a3624b2a0ac970c9ff175d2864b81db038016eef"}
+  [1m[35mIdentity Load (0.5ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 8[0m  [["current_sign_in_at", "2015-02-17 22:35:45.897124"], ["sign_in_count", 2], ["updated_at", "2015-02-17 22:35:45.898344"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 316ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 22:35:46 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 8  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 240ms (Views: 239.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-02-17 22:36:17 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Nomj2unY034w4xus71QCWNRSNN3sIBy/HSCiDhwRpQA="}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 8  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 22:36:17 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 235ms (Views: 234.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-17 22:36:22 +0000
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-17 22:36:23 +0000
+
+
+Started GET "/users/auth/twitter/callback?oauth_token=qIk4Vakl00NFfnR1fPAlopnqplRmPpGD&oauth_verifier=5yAOmiHs6rn4NtTr6CvbMXsiFPzyF06H" for 127.0.0.1 at 2015-02-17 22:36:27 +0000
+Processing by OmniauthCallbacksController#twitter as HTML
+  Parameters: {"oauth_token"=>"qIk4Vakl00NFfnR1fPAlopnqplRmPpGD", "oauth_verifier"=>"5yAOmiHs6rn4NtTr6CvbMXsiFPzyF06H"}
+  [1m[36mIdentity Load (0.3ms)[0m  [1mSELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '2791788213' AND "identities"."provider" = 'twitter' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdentity Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '2791788213' AND "identities"."provider" = 'twitter') LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "identities" ("created_at", "provider", "uid", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-17 22:36:28.233783"], ["provider", "twitter"], ["uid", "2791788213"], ["updated_at", "2015-02-17 22:36:28.233783"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."id" IS NOT NULL) AND "users"."slug" = 'alex' LIMIT 1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'change@me-2791788213-twitter.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "email", "encrypted_password", "name", "slug", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmed_at", "2015-02-17 22:36:28.319637"], ["created_at", "2015-02-17 22:36:28.419936"], ["email", "change@me-2791788213-twitter.com"], ["encrypted_password", "$2a$10$cZCpDxqsgFzhXVFpXYvoFuiTH6U8MktjKXvAp2pWHY37PiT.DEI6W"], ["name", "Alex"], ["slug", "alex"], ["updated_at", "2015-02-17 22:36:28.419936"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Exists (0.2ms)[0m  SELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '2791788213' AND "identities"."id" != 5 AND "identities"."provider" = 'twitter') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "identities" SET "updated_at" = ?, "user_id" = ? WHERE "identities"."id" = 5[0m  [["updated_at", "2015-02-17 22:36:28.425916"], ["user_id", 9]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 9  [["current_sign_in_at", "2015-02-17 22:36:28.428236"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2015-02-17 22:36:28.428236"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-02-17 22:36:28.429422"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 232ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-17 22:36:28 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 9  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Alex' LIMIT 1[0m
+  Rendered users/finish_signup.html.haml within layouts/application (11.8ms)
+Completed 200 OK in 277ms (Views: 273.5ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/9/finish_signup" for 127.0.0.1 at 2015-02-17 22:36:38 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"90zI3VCamVRTf4DzQS9nh98MXA/Bc2KgScXZ1yr05qc=", "user"=>{"email"=>"alexl@versocap.com"}, "commit"=>"Complete Signup", "id"=>"9"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 9  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Alex' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alexl@versocap.com' AND "users"."id" != 9) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'c1a1483cf32fa8e59641ac131094f6db90af9b70580aeb8708f5ae34d262ede0'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 9[0m  [["confirmation_sent_at", "2015-02-17 22:36:39.011042"], ["confirmation_token", "c1a1483cf32fa8e59641ac131094f6db90af9b70580aeb8708f5ae34d262ede0"], ["unconfirmed_email", "alexl@versocap.com"], ["updated_at", "2015-02-17 22:36:38.783995"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (1.5ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 180.6ms
+
+Sent mail to alexl@versocap.com (1280.2ms)
+Date: Tue, 17 Feb 2015 22:36:39 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alexl@versocap.com
+Message-ID: <54e3c27734431_28a3ff6d28a19e47292c@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alexl@versocap.com!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=g79nXwkQ7EhgxUqV4s-m">Confirm my account</a></p>
+
+  [1m[35m (9.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/edit
+Completed 302 Found in 1720ms (ActiveRecord: 10.5ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-02-17 22:36:40 +0000
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 9  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered devise/registrations/edit.html.haml within layouts/application (14.5ms)
+Completed 200 OK in 211ms (Views: 206.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=g79nXwkQ7EhgxUqV4s-m" for 127.0.0.1 at 2015-02-17 22:49:59 +0000
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"g79nXwkQ7EhgxUqV4s-m"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'c1a1483cf32fa8e59641ac131094f6db90af9b70580aeb8708f5ae34d262ede0'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alexl@versocap.com' AND "users"."id" != 9) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "confirmation_token" = ?, "confirmed_at" = ?, "email" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 9[0m  [["confirmation_token", nil], ["confirmed_at", "2015-02-17 22:49:59.224269"], ["email", "alexl@versocap.com"], ["unconfirmed_email", nil], ["updated_at", "2015-02-17 22:49:59.225439"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 9  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 22:49:59 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 9  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 218ms (Views: 217.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/confirmation?confirmation_token=g79nXwkQ7EhgxUqV4s-m" for 127.0.0.1 at 2015-02-17 22:50:08 +0000
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"g79nXwkQ7EhgxUqV4s-m"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'c1a1483cf32fa8e59641ac131094f6db90af9b70580aeb8708f5ae34d262ede0'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered devise/confirmations/new.html.haml within layouts/application (5.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 9  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 183ms (Views: 180.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2015-02-17 22:50:35 +0000
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 9  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mWiki Load (0.6ms)[0m  SELECT "wikis".* FROM "wikis"
+  Rendered wikis/index.html.haml within layouts/application (9.8ms)
+Completed 200 OK in 210ms (Views: 200.8ms | ActiveRecord: 1.1ms)
+  [1m[36mWiki Load (3.9ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+  [1m[35mSQL (9.7ms)[0m  DELETE FROM "wikis"
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+  [1m[35mIdentity Load (0.2ms)[0m  SELECT "identities".* FROM "identities"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mIdentity Load (0.2ms)[0m  SELECT "identities".* FROM "identities"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Load (0.2ms)[0m  SELECT "identities".* FROM "identities"  WHERE "identities"."user_id" = ?  [["user_id", 8]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "identities" WHERE "identities"."id" = ?[0m  [["id", 4]]
+  [1m[35mWiki Load (0.2ms)[0m  SELECT "wikis".* FROM "wikis"  WHERE "wikis"."user_id" = ?  [["user_id", 8]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 8]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT "identities".* FROM "identities"  WHERE "identities"."user_id" = ?  [["user_id", 9]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "identities" WHERE "identities"."id" = ?[0m  [["id", 5]]
+  [1m[35mWiki Load (0.0ms)[0m  SELECT "wikis".* FROM "wikis"  WHERE "wikis"."user_id" = ?  [["user_id", 9]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 9]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mSQL (8.8ms)[0m  [1mDELETE FROM "wikis"[0m
+  [1m[35mSQL (8.8ms)[0m  DELETE FROM "wikis"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT "identities".* FROM "identities"
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-02-17 22:54:28 +0000
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 9  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 401 Unauthorized in 2ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-17 22:54:28 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (8.3ms)
+Completed 200 OK in 231ms (Views: 223.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 22:54:37 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (4.5ms)
+Completed 200 OK in 230ms (Views: 228.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-17 22:54:40 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (3.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (19.1ms)
+Completed 200 OK in 251ms (Views: 249.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-17 22:54:42 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-17 22:54:43 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQBuAlNI4HcNuAVWgbEP0S4CV48ViSEkUBVrzi6l15mJetfdSWrVSoZb-CNXDQ3drlR1asz8B0WulaabaXJlt5FQGpaivUM0kzRUz2W47z9ACeIVOVKdioyNPx4dFqM3hMRAW5JmUQBLkeuO92mS_Vlm7yfsguQLAPg5XzyT0ilPvkP1ExmJeGZEvkHnbYIr7mG6DTfj2Ze911XSsunM3VrmpNzRTZHcYhFfhwOyOZy3bA_fprkT-dLGam5n2_Gbj95L4vRmyHROtch5sH05GqtUdNWZqXzlIkoesGD-atVzLw2QrkMIYmJ_hi69bhA11aeDI8ygIL7MilW8YHW3kzTO&state=4028c30f29cb1e4b8173dd960a0ab1a045d65aa18ec5b3c7" for 127.0.0.1 at 2015-02-17 22:54:44 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBuAlNI4HcNuAVWgbEP0S4CV48ViSEkUBVrzi6l15mJetfdSWrVSoZb-CNXDQ3drlR1asz8B0WulaabaXJlt5FQGpaivUM0kzRUz2W47z9ACeIVOVKdioyNPx4dFqM3hMRAW5JmUQBLkeuO92mS_Vlm7yfsguQLAPg5XzyT0ilPvkP1ExmJeGZEvkHnbYIr7mG6DTfj2Ze911XSsunM3VrmpNzRTZHcYhFfhwOyOZy3bA_fprkT-dLGam5n2_Gbj95L4vRmyHROtch5sH05GqtUdNWZqXzlIkoesGD-atVzLw2QrkMIYmJ_hi69bhA11aeDI8ygIL7MilW8YHW3kzTO", "state"=>"4028c30f29cb1e4b8173dd960a0ab1a045d65aa18ec5b3c7"}
+  [1m[35mIdentity Load (0.2ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Exists (0.1ms)[0m  SELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "identities" ("created_at", "provider", "uid", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-17 22:54:44.568819"], ["provider", "facebook"], ["uid", "833238006715005"], ["updated_at", "2015-02-17 22:54:44.568819"]]
+  [1m[35m (9.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'alex.lewis79@yahoo.co.uk'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."id" IS NOT NULL) AND "users"."slug" = 'alex-lewis' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'alex.lewis79@yahoo.co.uk' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "email", "encrypted_password", "name", "slug", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmed_at", "2015-02-17 22:54:44.658048"], ["created_at", "2015-02-17 22:54:44.662464"], ["email", "alex.lewis79@yahoo.co.uk"], ["encrypted_password", "$2a$10$fyUsE9lvigzvG4pKgwtySuDAFA8Ixz07cbZKEu0aZA969NGS2Unda"], ["name", "Alex Lewis"], ["slug", "alex-lewis"], ["updated_at", "2015-02-17 22:54:44.662464"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Exists (0.1ms)[0m  SELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '833238006715005' AND "identities"."id" != 6 AND "identities"."provider" = 'facebook') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "identities" SET "updated_at" = ?, "user_id" = ? WHERE "identities"."id" = 6[0m  [["updated_at", "2015-02-17 22:54:44.666310"], ["user_id", 10]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 10  [["current_sign_in_at", "2015-02-17 22:54:44.668047"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2015-02-17 22:54:44.668047"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-02-17 22:54:44.668490"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/edit
+Completed 302 Found in 113ms (ActiveRecord: 14.2ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-02-17 22:54:44 +0000
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 10  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered devise/registrations/edit.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 205ms (Views: 202.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2015-02-17 22:54:58 +0000
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mWiki Load (0.7ms)[0m  SELECT "wikis".* FROM "wikis"
+  Rendered wikis/index.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 347ms (Views: 341.6ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-02-17 22:55:03 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aKSCuLvxiPjiN19zBC8q4iUNmzJtvWRvQinRVIrtzs0="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 22:55:03 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 237ms (Views: 236.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-17 22:55:05 +0000
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-17 22:55:09 +0000
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-17 22:55:17 +0000
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-17 22:55:18 +0000
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-17 22:55:20 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.3ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (8.4ms)
+Completed 200 OK in 243ms (Views: 239.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-17 22:55:23 +0000
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-17 22:55:25 +0000
+
+
+Started GET "/users/auth/twitter/callback?oauth_token=xSO8wb0bCgfJUB7fc2LRvDskKiFzTrgQ&oauth_verifier=kal6ZAzPYlk3WJ2gFnf15nAX8Wb9eJ0g" for 127.0.0.1 at 2015-02-17 22:55:40 +0000
+Processing by OmniauthCallbacksController#twitter as HTML
+  Parameters: {"oauth_token"=>"xSO8wb0bCgfJUB7fc2LRvDskKiFzTrgQ", "oauth_verifier"=>"kal6ZAzPYlk3WJ2gFnf15nAX8Wb9eJ0g"}
+  [1m[35mIdentity Load (0.2ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '2791788213' AND "identities"."provider" = 'twitter' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Exists (0.1ms)[0m  SELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '2791788213' AND "identities"."provider" = 'twitter') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "identities" ("created_at", "provider", "uid", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-17 22:55:41.601256"], ["provider", "twitter"], ["uid", "2791788213"], ["updated_at", "2015-02-17 22:55:41.601256"]]
+  [1m[35m (8.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."id" IS NOT NULL) AND "users"."slug" = 'alex' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'change@me-2791788213-twitter.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("confirmed_at", "created_at", "email", "encrypted_password", "name", "slug", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmed_at", "2015-02-17 22:55:41.689881"], ["created_at", "2015-02-17 22:55:41.696691"], ["email", "change@me-2791788213-twitter.com"], ["encrypted_password", "$2a$10$zIh/Vg2.jcuqEQ169PEB/utzkfKZ1z/z4ds.cs5gzovHL1UK28VGa"], ["name", "Alex"], ["slug", "alex"], ["updated_at", "2015-02-17 22:55:41.696691"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdentity Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '2791788213' AND "identities"."id" != 7 AND "identities"."provider" = 'twitter') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "identities" SET "updated_at" = ?, "user_id" = ? WHERE "identities"."id" = 7  [["updated_at", "2015-02-17 22:55:41.700112"], ["user_id", 11]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 11[0m  [["current_sign_in_at", "2015-02-17 22:55:41.703000"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2015-02-17 22:55:41.703000"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-02-17 22:55:41.703611"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 109ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-17 22:55:41 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Alex' LIMIT 1
+  Rendered users/finish_signup.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 248ms (Views: 244.4ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/users/11/finish_signup" for 127.0.0.1 at 2015-02-17 22:55:59 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dgDdIX6hTrYnbgakiw6fROTZ0ZPdO1c4fDAEq3YDC2I=", "user"=>{"email"=>"alexl@versocap.com"}, "commit"=>"Complete Signup", "id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Alex' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alexl@versocap.com' AND "users"."id" != 11) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'bc91ae278715185a675d43dedf648347c9d42935e1140291c295606f1d9daabc'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 11  [["confirmation_sent_at", "2015-02-17 22:55:59.214420"], ["confirmation_token", "bc91ae278715185a675d43dedf648347c9d42935e1140291c295606f1d9daabc"], ["unconfirmed_email", "alexl@versocap.com"], ["updated_at", "2015-02-17 22:55:59.213712"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (0.5ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 7.2ms
+
+Sent mail to alexl@versocap.com (1438.1ms)
+Date: Tue, 17 Feb 2015 22:55:59 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alexl@versocap.com
+Message-ID: <54e3c6ff381c5_28a3ff6d6e5da8c7303d@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alexl@versocap.com!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=98UGc2pmkmrtrsm_trRc">Confirm my account</a></p>
+
+  [1m[36m (8.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/edit
+Completed 302 Found in 1468ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-02-17 22:56:00 +0000
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered devise/registrations/edit.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 215ms (Views: 212.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-02-17 23:02:24 +0000
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered devise/registrations/edit.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 212ms (Views: 200.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/confirmation?confirmation_token=98UGc2pmkmrtrsm_trRc" for 127.0.0.1 at 2015-02-17 23:09:21 +0000
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"98UGc2pmkmrtrsm_trRc"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'bc91ae278715185a675d43dedf648347c9d42935e1140291c295606f1d9daabc'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alexl@versocap.com' AND "users"."id" != 11) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "confirmation_token" = ?, "confirmed_at" = ?, "email" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 11[0m  [["confirmation_token", nil], ["confirmed_at", "2015-02-17 23:09:21.894067"], ["email", "alexl@versocap.com"], ["unconfirmed_email", nil], ["updated_at", "2015-02-17 23:09:21.898253"]]
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 36ms (ActiveRecord: 10.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 23:09:21 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 198ms (Views: 196.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2015-02-17 23:09:28 +0000
+Processing by WikisController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mWiki Load (0.2ms)[0m  SELECT "wikis".* FROM "wikis"
+  Rendered wikis/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 198ms (Views: 193.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wikis" for 127.0.0.1 at 2015-02-17 23:09:57 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+  Rendered wikis/index.html.haml within layouts/application (7.0ms)
+Completed 200 OK in 562ms (Views: 516.6ms | ActiveRecord: 0.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "role" = ?, "updated_at" = ? WHERE "users"."id" = 10  [["role", "public"], ["updated_at", "2015-02-17 23:18:34.595456"]]
+  [1m[36m (8.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 23:31:22 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (6.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 247ms (Views: 241.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-17 23:31:24 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 253ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 23:31:24 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 208ms (Views: 206.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-17 23:31:29 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 23:31:29 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 229ms (Views: 227.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 23:31:33 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (3.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 208ms (Views: 207.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-17 23:31:35 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 23:31:35 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 229ms (Views: 227.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-02-17 23:31:39 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dgDdIX6hTrYnbgakiw6fROTZ0ZPdO1c4fDAEq3YDC2I="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 11  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-17 23:31:39 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 252ms (Views: 251.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-17 23:31:41 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (2.9ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (50.1ms)
+Completed 200 OK in 281ms (Views: 278.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-02-17 23:32:09 +0000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtOkM0eXg5sZg3jLmVOlvNdJHzdDS5cMH4Kh6GpEkoI=", "user"=>{"name"=>"Alexander", "email"=>"alex.lewis79@yahoo.co.uk", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."id" IS NOT NULL) AND "users"."slug" = 'alexander' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'alex.lewis79@yahoo.co.uk' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered devise/shared/_links.html.haml (0.3ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (4.6ms)
+Completed 200 OK in 380ms (Views: 207.6ms | ActiveRecord: 0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Load (0.2ms)[0m  SELECT "identities".* FROM "identities"  WHERE "identities"."user_id" = ?  [["user_id", 10]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "identities" WHERE "identities"."id" = ?[0m  [["id", 6]]
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdentity Load (0.1ms)[0m  [1mSELECT "identities".* FROM "identities"  WHERE "identities"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "identities" WHERE "identities"."id" = ?  [["id", 6]]
+  [1m[36m (8.4ms)[0m  [1mrollback transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT "identities".* FROM "identities"  WHERE "identities"."user_id" = ?  [["user_id", 10]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "identities" WHERE "identities"."id" = ?[0m  [["id", 6]]
+  [1m[35m (7.6ms)[0m  rollback transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mWiki Load (0.2ms)[0m  SELECT "wikis".* FROM "wikis"
+  [1m[36mIdentity Load (0.2ms)[0m  [1mSELECT "identities".* FROM "identities"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT "identities".* FROM "identities"  WHERE "identities"."user_id" = ?  [["user_id", 10]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "identities" WHERE "identities"."id" = ?[0m  [["id", 6]]
+  [1m[35m (8.4ms)[0m  rollback transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdentity Load (0.1ms)[0m  [1mSELECT "identities".* FROM "identities"  WHERE "identities"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "identities" WHERE "identities"."id" = ?  [["id", 6]]
+  [1m[36m (8.4ms)[0m  [1mrollback transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT "identities".* FROM "identities"  WHERE "identities"."user_id" = ?  [["user_id", 10]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "identities" WHERE "identities"."id" = ?[0m  [["id", 6]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT "wikis".* FROM "wikis"  WHERE "wikis"."user_id" = ?  [["user_id", 10]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 10]]
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT "identities".* FROM "identities"  WHERE "identities"."user_id" = ?  [["user_id", 11]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "identities" WHERE "identities"."id" = ?[0m  [["id", 7]]
+  [1m[35mWiki Load (0.0ms)[0m  SELECT "wikis".* FROM "wikis"  WHERE "wikis"."user_id" = ?  [["user_id", 11]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 11]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started POST "/users" for 127.0.0.1 at 2015-02-18 00:00:51 +0000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtOkM0eXg5sZg3jLmVOlvNdJHzdDS5cMH4Kh6GpEkoI=", "user"=>{"name"=>"Alexander", "email"=>"alex.lewis79@yahoo.co.uk", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE ("users"."id" IS NOT NULL) AND "users"."slug" = 'alexander' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'alex.lewis79@yahoo.co.uk' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '2cf01f0fcbfb3d1abbaffcf9e6aeb2f1f55420ee954c278f18f14ac8a9d16abf'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("confirmation_sent_at", "confirmation_token", "created_at", "email", "encrypted_password", "name", "role", "slug", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_sent_at", "2015-02-18 00:00:51.717890"], ["confirmation_token", "2cf01f0fcbfb3d1abbaffcf9e6aeb2f1f55420ee954c278f18f14ac8a9d16abf"], ["created_at", "2015-02-18 00:00:51.464236"], ["email", "alex.lewis79@yahoo.co.uk"], ["encrypted_password", "$2a$10$k2Ohh/YlezleM0aesPB88.8a1M6ZKrUtM12A4zVLii17acO/KrIY6"], ["name", "Alexander"], ["role", "public"], ["slug", "alexander"], ["updated_at", "2015-02-18 00:00:51.464236"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (2.9ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 190.4ms
+
+Sent mail to alex.lewis79@yahoo.co.uk (1324.1ms)
+Date: Wed, 18 Feb 2015 00:00:51 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alex.lewis79@yahoo.co.uk
+Message-ID: <54e3d633e5373_3503ffc079558ec1087f@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alex.lewis79@yahoo.co.uk!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=Azs2UUjoNgHFfprF4cjV">Confirm my account</a></p>
+
+  [1m[35m (8.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 1919ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 00:00:53 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 177ms (Views: 176.1ms | ActiveRecord: 0.0ms)
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT "identities".* FROM "identities"
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT "wikis".* FROM "wikis"[0m
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:07:45 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:07:46 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQDHmZBtFc3fBqpCyk7k_lhQ-0XF-cxmfZNpsrtBV280mLt-9cQhnfrr8ETBvS-itQbbc042zKTnoTZXNW13j_EkBJwwoXDax-a2RF_OxiObdHHkryTHdQ5tpGIr2fHKHTbJM7il7dP3CMql8inH7y8aHeWaT_MWjKajRWvvorTU80eGsq6B_gpw7DEP6hqRQtbc8_9dxmnGgwOoTm8CxoeW7131fnIbmifRa76iKNgXBMd9LpTzMW5zr90C34LTmR-4CrDepkRkTUwxC7Dlx1sLqUYmqqrJhc9ijJE16bia9BmQpdrMypHnDIUeCEr8RI_XdFp1S9BMBvZBVXT9kJ1J&state=63474291949c97dae096b582ad7c10072236ed401bef87e3" for 127.0.0.1 at 2015-02-18 00:07:46 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDHmZBtFc3fBqpCyk7k_lhQ-0XF-cxmfZNpsrtBV280mLt-9cQhnfrr8ETBvS-itQbbc042zKTnoTZXNW13j_EkBJwwoXDax-a2RF_OxiObdHHkryTHdQ5tpGIr2fHKHTbJM7il7dP3CMql8inH7y8aHeWaT_MWjKajRWvvorTU80eGsq6B_gpw7DEP6hqRQtbc8_9dxmnGgwOoTm8CxoeW7131fnIbmifRa76iKNgXBMd9LpTzMW5zr90C34LTmR-4CrDepkRkTUwxC7Dlx1sLqUYmqqrJhc9ijJE16bia9BmQpdrMypHnDIUeCEr8RI_XdFp1S9BMBvZBVXT9kJ1J", "state"=>"63474291949c97dae096b582ad7c10072236ed401bef87e3"}
+  [1m[36mIdentity Load (0.1ms)[0m  [1mSELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdentity Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "identities" ("created_at", "provider", "uid", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-18 00:07:46.934923"], ["provider", "facebook"], ["uid", "833238006715005"], ["updated_at", "2015-02-18 00:07:46.934923"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'alex.lewis79@yahoo.co.uk'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Exists (0.1ms)[0m  SELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '833238006715005' AND "identities"."id" != 8 AND "identities"."provider" = 'facebook') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "identities" SET "updated_at" = ?, "user_id" = ? WHERE "identities"."id" = 8[0m  [["updated_at", "2015-02-18 00:07:46.956934"], ["user_id", 12]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Completed 401 Unauthorized in 36ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:07:46 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (8.8ms)
+Completed 200 OK in 183ms (Views: 181.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:07:55 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:07:55 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQC7nrAYNyZCxU9A4Zn8s0Pinma1c0P1ubVr-1-mckARnZjYYQWmU2PQOEVNmNt1n_3G0-15KVyrHv2MhTqs4MHjoZRhExKk9u5TlPFZTyNzNOHLhg9l4PGeIqnb_Pa3w4JBNPv7F3_9-km_3NgrinKEwMBeeD6mnSls-1H_sjZD9GISqdpUarxhLc8bFbN4WsZO-JYfdV5u1ahxD1yKGg3hdo_NK6pAcBHcpZ7HZrLiJtFbqRE1lxwXMzcE9xETglkvuUmoW3wlCX0hvtS4Yii2jIOdKwTk2AZFI-Q64jycw6disUV48oBQNJZ6FzlolAWGaaEgblJ-OJn5m9bmMxGh&state=f78340ea42000c6256d54b35833328b20ab7f8ee381ce9af" for 127.0.0.1 at 2015-02-18 00:07:55 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQC7nrAYNyZCxU9A4Zn8s0Pinma1c0P1ubVr-1-mckARnZjYYQWmU2PQOEVNmNt1n_3G0-15KVyrHv2MhTqs4MHjoZRhExKk9u5TlPFZTyNzNOHLhg9l4PGeIqnb_Pa3w4JBNPv7F3_9-km_3NgrinKEwMBeeD6mnSls-1H_sjZD9GISqdpUarxhLc8bFbN4WsZO-JYfdV5u1ahxD1yKGg3hdo_NK6pAcBHcpZ7HZrLiJtFbqRE1lxwXMzcE9xETglkvuUmoW3wlCX0hvtS4Yii2jIOdKwTk2AZFI-Q64jycw6disUV48oBQNJZ6FzlolAWGaaEgblJ-OJn5m9bmMxGh", "state"=>"f78340ea42000c6256d54b35833328b20ab7f8ee381ce9af"}
+  [1m[36mIdentity Load (0.2ms)[0m  [1mSELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Completed 401 Unauthorized in 15ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:07:55 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 248ms (Views: 246.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:07:58 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:07:58 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQARX4Pg_hGr1YzVbdid5T0iXwinPux7y0GV-ai7d6YJVPBw4Vs7OpjKBZEX03fZQoPMAhx65v36Q91roH4vcEJ80x3vJg46h3la9Ao75nFTnB_r8KIKhTAFjf0pULGmK4QlFb-mHpQGuuXid0iM1hEBz05L1JfGJqi7kfQxrZCHFK9a7tk-i4KkDzrs-unZ0wqnevd-LXGpbWN1b1ahN6fHmLPvuoyhQp-XSMysRhyVUMJNQ3r2l4r30wfZRdXtM1eBQSYrpAxE_7gStRXmOLUkNVlIoa6IjXPvczW6T-d9df3OaV5QSpPlM5gvLwAAD8Noisukd3kbCLLc5HDztuaC&state=15081b58d6706597deeff5c9a36985291ac4b40a9999466f" for 127.0.0.1 at 2015-02-18 00:07:58 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQARX4Pg_hGr1YzVbdid5T0iXwinPux7y0GV-ai7d6YJVPBw4Vs7OpjKBZEX03fZQoPMAhx65v36Q91roH4vcEJ80x3vJg46h3la9Ao75nFTnB_r8KIKhTAFjf0pULGmK4QlFb-mHpQGuuXid0iM1hEBz05L1JfGJqi7kfQxrZCHFK9a7tk-i4KkDzrs-unZ0wqnevd-LXGpbWN1b1ahN6fHmLPvuoyhQp-XSMysRhyVUMJNQ3r2l4r30wfZRdXtM1eBQSYrpAxE_7gStRXmOLUkNVlIoa6IjXPvczW6T-d9df3OaV5QSpPlM5gvLwAAD8Noisukd3kbCLLc5HDztuaC", "state"=>"15081b58d6706597deeff5c9a36985291ac4b40a9999466f"}
+  [1m[36mIdentity Load (0.2ms)[0m  [1mSELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Completed 401 Unauthorized in 4ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:07:59 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 172ms (Views: 170.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:08:01 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 169ms (Views: 167.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 00:08:03 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 254ms (Views: 253.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:08:07 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:08:07 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQB4GvSCAo2cMyS_EpnPjDzk2Ktz74PT0XwJNQVLwhMgIznahe8k-An47hwnYNPGj3qezjrbdJlMeZ0pUJtEdmR3259WN3NRcHiGzunAQ7ZAbeoTQWhcD9TRcWz-v6GP-IjCeRhK4hLsVFM3i_XpfK61K6QXlPBF6VUQ8AG4CH3nD9UeKIk7tDAGTA4EvXttBI14zztqQca8dIy74cv367TPsLol2PGYyJFkkP93gtl5h0RW41QtAuN72BvSmaVdlaU8pVUhGsQy-yGlg_S23jg-SIFlpASp6uwcJZVrrVeHMJdMZijkUe3rf37TlQkUbmyyYt3nIVIOYY9tFLoMlYsm&state=864e7383b7574454ebbd7e60d810c2f0586e53b1ba12b33d" for 127.0.0.1 at 2015-02-18 00:08:07 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQB4GvSCAo2cMyS_EpnPjDzk2Ktz74PT0XwJNQVLwhMgIznahe8k-An47hwnYNPGj3qezjrbdJlMeZ0pUJtEdmR3259WN3NRcHiGzunAQ7ZAbeoTQWhcD9TRcWz-v6GP-IjCeRhK4hLsVFM3i_XpfK61K6QXlPBF6VUQ8AG4CH3nD9UeKIk7tDAGTA4EvXttBI14zztqQca8dIy74cv367TPsLol2PGYyJFkkP93gtl5h0RW41QtAuN72BvSmaVdlaU8pVUhGsQy-yGlg_S23jg-SIFlpASp6uwcJZVrrVeHMJdMZijkUe3rf37TlQkUbmyyYt3nIVIOYY9tFLoMlYsm", "state"=>"864e7383b7574454ebbd7e60d810c2f0586e53b1ba12b33d"}
+  [1m[36mIdentity Load (0.2ms)[0m  [1mSELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Completed 401 Unauthorized in 4ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:08:07 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (2.4ms)
+Completed 200 OK in 197ms (Views: 195.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:08:12 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 208ms (Views: 206.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 00:08:16 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 262ms (Views: 260.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-18 00:08:17 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.3ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (3.7ms)
+Completed 200 OK in 219ms (Views: 218.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:08:21 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:08:21 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQBI1DuNtyiHK3yNiUElfAz0UL4cVpEZ-OJ5BUDzWbL76kumcihHLaFEOqB_V33OWgbTGX2SQh9GCIyYbPWkNq8zHjgf5H9mqS0GnPC1rBIFC2TYks-iEL3eegWL14TtaF-t0Qv8xuRY4NZRby_-iC_pTIeSJQ745S1LZsN8u7vUTXQwHtSAYcYvmyOJ8NztxlKCctfG3UVHAfpMHL6kDECyX0NP7csStCffWeFYBmgRE8hJz77zYW7zJDZzeW3GDqvbRrRuNY1N55dKNpdbSXPCGc9CgZ03hdGgULwK7KJA6r6pNA28WZowWVGzt7tJ4_vTMhwWTV-Sqdz9U-2hhAvj&state=2974101dc85a0d1c174bcd1beb5ede300d430979f29325bc" for 127.0.0.1 at 2015-02-18 00:08:21 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBI1DuNtyiHK3yNiUElfAz0UL4cVpEZ-OJ5BUDzWbL76kumcihHLaFEOqB_V33OWgbTGX2SQh9GCIyYbPWkNq8zHjgf5H9mqS0GnPC1rBIFC2TYks-iEL3eegWL14TtaF-t0Qv8xuRY4NZRby_-iC_pTIeSJQ745S1LZsN8u7vUTXQwHtSAYcYvmyOJ8NztxlKCctfG3UVHAfpMHL6kDECyX0NP7csStCffWeFYBmgRE8hJz77zYW7zJDZzeW3GDqvbRrRuNY1N55dKNpdbSXPCGc9CgZ03hdGgULwK7KJA6r6pNA28WZowWVGzt7tJ4_vTMhwWTV-Sqdz9U-2hhAvj", "state"=>"2974101dc85a0d1c174bcd1beb5ede300d430979f29325bc"}
+  [1m[36mIdentity Load (0.2ms)[0m  [1mSELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Completed 401 Unauthorized in 3ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:08:21 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 185ms (Views: 183.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:08:44 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (4.8ms)
+Completed 200 OK in 297ms (Views: 295.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 00:08:52 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 186ms (Views: 185.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:08:57 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:08:57 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQDP_SeSYn8a-KwhSkUWmAtFwM7pVxXE-8BZsYccHY7EA9sYf92yu8BWdGMhqLWRaaoUvUR6kuG6N_6TWMXK4xOEIYODTtsP86Sq4IHMO6-eZkuiotEEdmamWlLGrj0NvosB7EEeQPEo5khgBipLLV2D8oZOsSfFRw4B0W8NJyia5zaVPytzZlrrAmHqMiq7uUrYyoYagyiWNXdd2hs4hQfur7mOJEckJWc0zLOH0DfnAFrJ3ad4JP5MrOF3kCRV8Q7fu9VBdVO9lA1sxkyfe5aZjuv4Ciyiy69Qt1ejb35r8JoTfMqM8U03iCjsY1FacnzruSUFhr61golr91CxssTk&state=60ea3532c7ead85ffb2e35327d187628695ec8f14accd5dd" for 127.0.0.1 at 2015-02-18 00:08:57 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDP_SeSYn8a-KwhSkUWmAtFwM7pVxXE-8BZsYccHY7EA9sYf92yu8BWdGMhqLWRaaoUvUR6kuG6N_6TWMXK4xOEIYODTtsP86Sq4IHMO6-eZkuiotEEdmamWlLGrj0NvosB7EEeQPEo5khgBipLLV2D8oZOsSfFRw4B0W8NJyia5zaVPytzZlrrAmHqMiq7uUrYyoYagyiWNXdd2hs4hQfur7mOJEckJWc0zLOH0DfnAFrJ3ad4JP5MrOF3kCRV8Q7fu9VBdVO9lA1sxkyfe5aZjuv4Ciyiy69Qt1ejb35r8JoTfMqM8U03iCjsY1FacnzruSUFhr61golr91CxssTk", "state"=>"60ea3532c7ead85ffb2e35327d187628695ec8f14accd5dd"}
+  [1m[36mIdentity Load (0.2ms)[0m  [1mSELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Completed 401 Unauthorized in 4ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:08:58 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 225ms (Views: 223.6ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mIdentity Load (0.2ms)[0m  [1mSELECT "identities".* FROM "identities"[0m
+
+
+Started GET "/contact" for 127.0.0.1 at 2015-02-18 00:09:44 +0000
+Processing by WelcomeController#contact as HTML
+  Rendered welcome/contact.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 251ms (Views: 250.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 00:09:45 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 239ms (Views: 238.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-18 00:09:48 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (0.2ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (3.6ms)
+Completed 200 OK in 234ms (Views: 231.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:09:51 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:09:51 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQAHMuuLjNcLZ9MFnqOlH0zVVeG5ZXw_pYw1mdujOBsS4XjsksOW4olDBsOYmqpXUkOi-O9xCAGtdLlXkQCuxjEJIocVt3PjY8qqNRAqnsbXatKXNUfwdp0QBp3p9joa3WnF73fVAfdV1B-KCiT62fkHMBDJLS90dhfbD06ajhT71eA3XfC7xblTn0Vb6HkSi3j_AagL_MVlrmpmyzXno_S2a5Ih8XzFdpP3ZvdTe0CWHqeC8qHlEAn0RPPSYJPtVQmufpjWD-qiih0ANdXoI0GaRTw3T99F-C8h8dwDir8eFSP4SFcBEid6-j76w-W28RbG0zw6o3ToF8a21B_N_UlM&state=81526a6408ca62ed857669c03bfe3f9d3fbd876cd63e7ca7" for 127.0.0.1 at 2015-02-18 00:09:51 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAHMuuLjNcLZ9MFnqOlH0zVVeG5ZXw_pYw1mdujOBsS4XjsksOW4olDBsOYmqpXUkOi-O9xCAGtdLlXkQCuxjEJIocVt3PjY8qqNRAqnsbXatKXNUfwdp0QBp3p9joa3WnF73fVAfdV1B-KCiT62fkHMBDJLS90dhfbD06ajhT71eA3XfC7xblTn0Vb6HkSi3j_AagL_MVlrmpmyzXno_S2a5Ih8XzFdpP3ZvdTe0CWHqeC8qHlEAn0RPPSYJPtVQmufpjWD-qiih0ANdXoI0GaRTw3T99F-C8h8dwDir8eFSP4SFcBEid6-j76w-W28RbG0zw6o3ToF8a21B_N_UlM", "state"=>"81526a6408ca62ed857669c03bfe3f9d3fbd876cd63e7ca7"}
+  [1m[36mIdentity Load (0.2ms)[0m  [1mSELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Completed 401 Unauthorized in 4ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:09:51 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 218ms (Views: 216.4ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT "identities".* FROM "identities"  WHERE "identities"."user_id" = ?  [["user_id", 12]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "identities" WHERE "identities"."id" = ?[0m  [["id", 8]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT "wikis".* FROM "wikis"  WHERE "wikis"."user_id" = ?  [["user_id", 12]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 12]]
+  [1m[35m (10.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mIdentity Load (0.2ms)[0m  SELECT "identities".* FROM "identities"
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:12:13 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.haml within layouts/application (255.4ms)
+Completed 200 OK in 727ms (Views: 664.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 00:12:17 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (5.7ms)
+Completed 200 OK in 307ms (Views: 306.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-18 00:12:21 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.haml (2.2ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (22.6ms)
+Completed 200 OK in 251ms (Views: 250.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:12:25 +0000
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2015-02-18 00:12:26 +0000
+
+
+Started GET "/users/auth/facebook/callback?code=AQDOFUYEwaA88b5w9i7LCETWXASdPGf3l8vfOGb0IZ5eYlzC234AgNQMUgLa3-S4EyTW9inUs9w1pgmuwdeG7JEO5_fkMYuGTM3Ky9UFV9fJP1f5cicZngmeYW6Yu-0LiVsGx9DkXYCnGLHXczdiLRDkt9DpCKZPVzAOTrT5Zg3LmT5l1re_9AaVPzwSGlUVDiJysGOckv8xzKFFMtYcfFpaUDsV3adKXBGCLCBZto7skkEAsypujJpebAKIsQnJD4i5pMHrBBfAgar3pe3VWEL6yWr4fvUlcL2PkcPyfCL7Bg33iQG-euuwwuv9-QyevA_fjH9XhAe1rE-m8zeB-qIQ&state=5d514ecddae7eac42bb1297c70981ab8a723c7ea01113c3f" for 127.0.0.1 at 2015-02-18 00:12:26 +0000
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDOFUYEwaA88b5w9i7LCETWXASdPGf3l8vfOGb0IZ5eYlzC234AgNQMUgLa3-S4EyTW9inUs9w1pgmuwdeG7JEO5_fkMYuGTM3Ky9UFV9fJP1f5cicZngmeYW6Yu-0LiVsGx9DkXYCnGLHXczdiLRDkt9DpCKZPVzAOTrT5Zg3LmT5l1re_9AaVPzwSGlUVDiJysGOckv8xzKFFMtYcfFpaUDsV3adKXBGCLCBZto7skkEAsypujJpebAKIsQnJD4i5pMHrBBfAgar3pe3VWEL6yWr4fvUlcL2PkcPyfCL7Bg33iQG-euuwwuv9-QyevA_fjH9XhAe1rE-m8zeB-qIQ", "state"=>"5d514ecddae7eac42bb1297c70981ab8a723c7ea01113c3f"}
+  [1m[35mIdentity Load (0.1ms)[0m  SELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Exists (0.2ms)[0m  SELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '833238006715005' AND "identities"."provider" = 'facebook') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "identities" ("created_at", "provider", "uid", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-18 00:12:26.950385"], ["provider", "facebook"], ["uid", "833238006715005"], ["updated_at", "2015-02-18 00:12:26.950385"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'alex.lewis79@yahoo.co.uk'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."id" IS NOT NULL) AND "users"."slug" = 'alex-lewis' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'alex.lewis79@yahoo.co.uk' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "email", "encrypted_password", "name", "role", "slug", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["confirmed_at", "2015-02-18 00:12:27.038736"], ["created_at", "2015-02-18 00:12:27.118338"], ["email", "alex.lewis79@yahoo.co.uk"], ["encrypted_password", "$2a$10$/7RU5dq2/RArlqJQShs6neDTRjQjvcQjERaCH0HpI6jv8KtAi/LBy"], ["name", "Alex Lewis"], ["role", "public"], ["slug", "alex-lewis"], ["updated_at", "2015-02-18 00:12:27.118338"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Exists (0.1ms)[0m  SELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '833238006715005' AND "identities"."id" != 9 AND "identities"."provider" = 'facebook') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "identities" SET "updated_at" = ?, "user_id" = ? WHERE "identities"."id" = 9[0m  [["updated_at", "2015-02-18 00:12:27.122306"], ["user_id", 13]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 13  [["current_sign_in_at", "2015-02-18 00:12:27.125741"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2015-02-18 00:12:27.125741"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-02-18 00:12:27.126746"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/auth/facebook/callback?code=AQAHMuuLjNcLZ9MFnqOlH0zVVeG5ZXw_pYw1mdujOBsS4XjsksOW4olDBsOYmqpXUkOi-O9xCAGtdLlXkQCuxjEJIocVt3PjY8qqNRAqnsbXatKXNUfwdp0QBp3p9joa3WnF73fVAfdV1B-KCiT62fkHMBDJLS90dhfbD06ajhT71eA3XfC7xblTn0Vb6HkSi3j_AagL_MVlrmpmyzXno_S2a5Ih8XzFdpP3ZvdTe0CWHqeC8qHlEAn0RPPSYJPtVQmufpjWD-qiih0ANdXoI0GaRTw3T99F-C8h8dwDir8eFSP4SFcBEid6-j76w-W28RbG0zw6o3ToF8a21B_N_UlM&state=81526a6408ca62ed857669c03bfe3f9d3fbd876cd63e7ca7
+Completed 302 Found in 219ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/users/auth/facebook/callback?code=AQAHMuuLjNcLZ9MFnqOlH0zVVeG5ZXw_pYw1mdujOBsS4XjsksOW4olDBsOYmqpXUkOi-O9xCAGtdLlXkQCuxjEJIocVt3PjY8qqNRAqnsbXatKXNUfwdp0QBp3p9joa3WnF73fVAfdV1B-KCiT62fkHMBDJLS90dhfbD06ajhT71eA3XfC7xblTn0Vb6HkSi3j_AagL_MVlrmpmyzXno_S2a5Ih8XzFdpP3ZvdTe0CWHqeC8qHlEAn0RPPSYJPtVQmufpjWD-qiih0ANdXoI0GaRTw3T99F-C8h8dwDir8eFSP4SFcBEid6-j76w-W28RbG0zw6o3ToF8a21B_N_UlM&state=81526a6408ca62ed857669c03bfe3f9d3fbd876cd63e7ca7" for 127.0.0.1 at 2015-02-18 00:12:27 +0000
+Processing by OmniauthCallbacksController#failure as HTML
+  Parameters: {"code"=>"AQAHMuuLjNcLZ9MFnqOlH0zVVeG5ZXw_pYw1mdujOBsS4XjsksOW4olDBsOYmqpXUkOi-O9xCAGtdLlXkQCuxjEJIocVt3PjY8qqNRAqnsbXatKXNUfwdp0QBp3p9joa3WnF73fVAfdV1B-KCiT62fkHMBDJLS90dhfbD06ajhT71eA3XfC7xblTn0Vb6HkSi3j_AagL_MVlrmpmyzXno_S2a5Ih8XzFdpP3ZvdTe0CWHqeC8qHlEAn0RPPSYJPtVQmufpjWD-qiih0ANdXoI0GaRTw3T99F-C8h8dwDir8eFSP4SFcBEid6-j76w-W28RbG0zw6o3ToF8a21B_N_UlM", "state"=>"81526a6408ca62ed857669c03bfe3f9d3fbd876cd63e7ca7"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:12:27 +0000
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 13  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 00:12:27 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (3.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 13  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 217ms (Views: 215.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-02-18 00:12:38 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nw+qFX/MNObHNskkBxFuRGPQcFYJC6y6WtLShM1F49U="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 13  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 00:12:38 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 243ms (Views: 242.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-18 00:12:40 +0000
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-18 00:12:44 +0000
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2015-02-18 00:12:55 +0000
+
+
+Started GET "/users/auth/twitter/callback?oauth_token=Du43BnofCWls7sQOx7cIyhTf7fdIH7CO&oauth_verifier=ouutbR5eSbLRLjEE8JubFP2elvHZOUXN" for 127.0.0.1 at 2015-02-18 00:13:10 +0000
+Processing by OmniauthCallbacksController#twitter as HTML
+  Parameters: {"oauth_token"=>"Du43BnofCWls7sQOx7cIyhTf7fdIH7CO", "oauth_verifier"=>"ouutbR5eSbLRLjEE8JubFP2elvHZOUXN"}
+  [1m[36mIdentity Load (0.2ms)[0m  [1mSELECT  "identities".* FROM "identities"  WHERE "identities"."uid" = '2791788213' AND "identities"."provider" = 'twitter' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdentity Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '2791788213' AND "identities"."provider" = 'twitter') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "identities" ("created_at", "provider", "uid", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-18 00:13:10.804196"], ["provider", "twitter"], ["uid", "2791788213"], ["updated_at", "2015-02-18 00:13:10.804196"]]
+  [1m[36m (9.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."id" IS NOT NULL) AND "users"."slug" = 'alex' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'change@me-2791788213-twitter.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("confirmed_at", "created_at", "email", "encrypted_password", "name", "role", "slug", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["confirmed_at", "2015-02-18 00:13:10.895177"], ["created_at", "2015-02-18 00:13:10.900113"], ["email", "change@me-2791788213-twitter.com"], ["encrypted_password", "$2a$10$fGNlnIpY47kIvdxwJjYn2ebXmWlhZkcplkSLEx1d9Vaf67ogPDrFS"], ["name", "Alex"], ["role", "public"], ["slug", "alex"], ["updated_at", "2015-02-18 00:13:10.900113"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdentity Exists (0.1ms)[0m  SELECT  1 AS one FROM "identities"  WHERE ("identities"."uid" = '2791788213' AND "identities"."id" != 10 AND "identities"."provider" = 'twitter') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "identities" SET "updated_at" = ?, "user_id" = ? WHERE "identities"."id" = 10[0m  [["updated_at", "2015-02-18 00:13:10.903663"], ["user_id", 14]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[35mSQL (0.9ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 14  [["current_sign_in_at", "2015-02-18 00:13:10.905377"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2015-02-18 00:13:10.905377"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-02-18 00:13:10.905823"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/alex/finish_signup
+Completed 302 Found in 109ms (ActiveRecord: 14.4ms)
+
+
+Started GET "/users/alex/finish_signup" for 127.0.0.1 at 2015-02-18 00:13:10 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"alex"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 14  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Alex' LIMIT 1[0m
+  Rendered users/finish_signup.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 293ms (Views: 289.5ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/users/14/finish_signup" for 127.0.0.1 at 2015-02-18 00:13:26 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dMWVCtDhs4DKwN7eJnInJz1jVpe2n2z4R5lcPSBw14g=", "user"=>{"email"=>"alexl@versocap.com"}, "commit"=>"Complete Signup", "id"=>"14"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 14  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Alex' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alexl@versocap.com' AND "users"."id" != 14) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'ab553cd36face913c75c0098a8ae7a4d4e16680e0abb8a06fb475b2f016ecd9a'  ORDER BY "users"."id" ASC LIMIT 1
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 14[0m  [["confirmation_sent_at", "2015-02-18 00:13:26.646679"], ["confirmation_token", "ab553cd36face913c75c0098a8ae7a4d4e16680e0abb8a06fb475b2f016ecd9a"], ["unconfirmed_email", "alexl@versocap.com"], ["updated_at", "2015-02-18 00:13:26.426876"]]
+  Rendered devise/mailer/confirmation_instructions.html.haml (1.5ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 163.3ms
+
+Sent mail to alexl@versocap.com (1349.7ms)
+Date: Wed, 18 Feb 2015 00:13:26 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alexl@versocap.com
+Message-ID: <54e3d926c8d06_4123ff947de5794737d6@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alexl@versocap.com!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=xVyovDzH8dy68x3sgzsX">Confirm my account</a></p>
+
+  [1m[35m (9.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/edit
+Completed 302 Found in 1761ms (ActiveRecord: 10.8ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-02-18 00:13:28 +0000
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 14  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered devise/registrations/edit.html.haml within layouts/application (7.1ms)
+Completed 200 OK in 246ms (Views: 243.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/confirmation?confirmation_token=Azs2UUjoNgHFfprF4cjV" for 127.0.0.1 at 2015-02-18 00:14:35 +0000
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"Azs2UUjoNgHFfprF4cjV"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '2cf01f0fcbfb3d1abbaffcf9e6aeb2f1f55420ee954c278f18f14ac8a9d16abf'  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered devise/confirmations/new.html.haml within layouts/application (3.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 14  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 187ms (Views: 183.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/confirmation" for 127.0.0.1 at 2015-02-18 00:14:48 +0000
+Processing by Devise::ConfirmationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dMWVCtDhs4DKwN7eJnInJz1jVpe2n2z4R5lcPSBw14g=", "user"=>{"email"=>"alexl@versocap.com"}, "commit"=>"Resend confirmation instructions"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."unconfirmed_email" = 'alexl@versocap.com'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '2c0db344d3325d6fa101d61e2b0b245baae5c989863f3ac5ae0ce793fc12db5d'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Binary data inserted for `string` type on column `confirmation_token`
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "confirmation_sent_at" = ?, "confirmation_token" = ?, "updated_at" = ? WHERE "users"."id" = 14[0m  [["confirmation_sent_at", "2015-02-18 00:14:48.387760"], ["confirmation_token", "2c0db344d3325d6fa101d61e2b0b245baae5c989863f3ac5ae0ce793fc12db5d"], ["updated_at", "2015-02-18 00:14:48.388137"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  Rendered devise/mailer/confirmation_instructions.html.haml (1.2ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.6ms
+
+Sent mail to alexl@versocap.com (1537.3ms)
+Date: Wed, 18 Feb 2015 00:14:48 +0000
+From: alex.lewis79@yahoo.co.uk
+Reply-To: alex.lewis79@yahoo.co.uk
+To: alexl@versocap.com
+Message-ID: <54e3d978622ad_4123ff9497dcfd0738c2@Alexanders-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>
+  Welcome alexl@versocap.com!
+</p>
+<p>You can confirm your account email through the link below:</p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=t422QqRrGKoxjucWzg2_">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1569ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 00:14:49 +0000
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 14  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 00:14:49 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 14  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 219ms (Views: 218.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/14/finish_signup" for 127.0.0.1 at 2015-02-18 00:14:57 +0000
+Processing by UsersController#finish_signup as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 14  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Alex' LIMIT 1
+  Rendered users/finish_signup.html.haml within layouts/application (6.3ms)
+Completed 200 OK in 203ms (Views: 200.7ms | ActiveRecord: 0.3ms)
+  [1m[36mIdentity Load (0.2ms)[0m  [1mSELECT "identities".* FROM "identities"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+
+
+Started GET "/users/confirmation?confirmation_token=xVyovDzH8dy68x3sgzsX" for 127.0.0.1 at 2015-02-18 00:28:14 +0000
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"xVyovDzH8dy68x3sgzsX"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = 'ab553cd36face913c75c0098a8ae7a4d4e16680e0abb8a06fb475b2f016ecd9a'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered devise/confirmations/new.html.haml within layouts/application (1.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 14  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 252ms (Views: 240.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/confirmation?confirmation_token=t422QqRrGKoxjucWzg2_" for 127.0.0.1 at 2015-02-18 00:28:27 +0000
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"t422QqRrGKoxjucWzg2_"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."confirmation_token" = '2c0db344d3325d6fa101d61e2b0b245baae5c989863f3ac5ae0ce793fc12db5d'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."email" = 'alexl@versocap.com' AND "users"."id" != 14) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "confirmation_token" = ?, "confirmed_at" = ?, "email" = ?, "unconfirmed_email" = ?, "updated_at" = ? WHERE "users"."id" = 14  [["confirmation_token", nil], ["confirmed_at", "2015-02-18 00:28:27.799121"], ["email", "alexl@versocap.com"], ["unconfirmed_email", nil], ["updated_at", "2015-02-18 00:28:27.802410"]]
+  [1m[36m (8.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 14  ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 9.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 00:28:27 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 14  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 192ms (Views: 191.0ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
