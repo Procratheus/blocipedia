@@ -3,6 +3,7 @@ class WikisController < ApplicationController
 
   def index
     @wikis = Wiki.all
+    @user_wikis = @wikis.where(user_id: current_user.id)
     authorize @wikis
   end
 
@@ -14,7 +15,7 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki = Wiki.new(wiki_params)
+    @wiki = current_user.wikis.build(wiki_params)
     if @wiki.save
       flash[:notice] = "Your #{@wiki.title} Wiki was successfully created."
       redirect_to wikis_path

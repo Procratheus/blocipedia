@@ -1,52 +1,52 @@
 .ui.page.grid
-  .ui.two.column.middle.aligned.relaxed.fitted.stackable.grid
-    .column
-      .center.aligned
+  .segment
+    .ui.two.column.middle.aligned.relaxed.fitted.stackable.grid
+      .column
         %h2 Sign up with E-mail
-      .ui.form.segment
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = devise_error_messages!
-          .field
-            = f.label :name
-            .ui.left.icon.input
-              = f.text_field :name, autofocus: true
-              %i.user.icon
-          .field
-            = f.label :email
-            .ui.left.icon.input
-              = f.email_field :email
-              %i.mail.icon
-          .field
-            = f.label :password
-            - if @validatable
-              %em
-                (#{@minimum_password_length} characters minimum)
-            .ui.left.icon.input
-              = f.password_field :password, autocomplete: "off"
-              %i.lock.icon
-          .field
-            = f.label :password_confirmation
-            .ui.left.icon.input
-              = f.password_field :password_confirmation, autocomplete: "off"
-              %i.lock.icon
-          %div
-            = f.submit "Sign up", class: " ui left icon button blue submit"
-          .field
-            %br/
-            = render "devise/shared/links"         
-    .ui.vertical.divider
-      OR
-    .center.aligned.column
-      %h2 Sign up with social media
-      .ui.form.segment
-        .ui.huge.facebook.button.textwhite
-          = link_to user_omniauth_authorize_path(:facebook) do
-            %i.facebook.icon
-            facebook      
-        .ui.huge.twitter.button.textwhite
-          = link_to user_omniauth_authorize_path(:twitter) do
-            %i.twitter.icon
-            twitter
+        .ui.form.segment
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = devise_error_messages!
+            .field
+              = f.label :name
+              .ui.left.icon.input
+                = f.text_field :name, autofocus: true
+                %i.user.icon
+            .field
+              = f.label :email
+              .ui.left.icon.input
+                = f.email_field :email
+                %i.mail.icon
+            .field
+              = f.label :password
+              - if @validatable
+                %em
+                  (#{@minimum_password_length} characters minimum)
+              .ui.left.icon.input
+                = f.password_field :password, autocomplete: "off"
+                %i.lock.icon
+            .field
+              = f.label :password_confirmation
+              .ui.left.icon.input
+                = f.password_field :password_confirmation, autocomplete: "off"
+                %i.lock.icon
+            %div
+              = f.submit "Sign up", class: " ui left icon button blue submit"
+            .field
+              %br/
+              = render "devise/shared/links"         
+      .ui.vertical.divider
+        OR
+      .center.aligned.column
+        %h2 Sign up with social media
+        .ui.form.segment
+          .ui.huge.facebook.button.textwhite
+            = link_to user_omniauth_authorize_path(:facebook) do
+              %i.facebook.icon
+              facebook      
+          .ui.huge.twitter.button.textwhite
+            = link_to user_omniauth_authorize_path(:twitter) do
+              %i.twitter.icon
+              twitter
             
 
 
