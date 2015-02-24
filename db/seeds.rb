@@ -29,8 +29,8 @@ end
 wikis = Wiki.all
 
 puts "Seeds finished"
-puts "#{User.count} created"
-puts "#{Wiki.count} created"
+puts "#{User.count} users created"
+puts "#{Wiki.count} wikis created"
 
 
 

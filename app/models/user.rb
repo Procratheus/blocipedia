@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     if user.nil?
       email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
       email = auth.info.email if email_is_verified
-      user = User.where(:email => email).first if email
+      user = User.where(email: email).first if email
 
       if user.nil?
         user = User.new(

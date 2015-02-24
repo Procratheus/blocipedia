@@ -1,5 +1,4 @@
-Rails.application.routes.draw do
-  
+Rails.application.routes.draw do  
   devise_for :users, :controllers => { omniauth_callbacks: "omniauth_callbacks" }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch, :put], :as => :finish_signup
   resources :wikis
@@ -8,6 +7,6 @@ Rails.application.routes.draw do
   authenticated :user do 
     root "wikis#index", as: :authenticated_user
   end
-
+  resources :charges, only: [:new, :create]
   root to: 'welcome#index'
 end
