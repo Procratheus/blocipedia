@@ -40,7 +40,7 @@
             %br/
             = f.submit "Update", class: "ui left button blue submit"
           %h3 Upgrade my Account
-            = render 'charges/create'
+          = link_to "Upgrade with stripe", new_charge_path, class: "ui left button green submit"
           %h3 Cancel my account
           %p
             Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "ui left button orange submit"}

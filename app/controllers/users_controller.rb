@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         #@user.skip_reconfirmation!
         sign_in(@user, bypass: true)
-        redirect_to root_path
+        redirect_to edit_user_registration_path
         flash[:info] = "You have updated your user profile succesfully"
       else
         @show_errors = true

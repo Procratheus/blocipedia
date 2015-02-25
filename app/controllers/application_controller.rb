@@ -4,13 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   # Authenticated users can only access application features
   before_action :authenticate_user!
-  before_action :ensure_signup_complete
+  #before_action :ensure_signup_complete
   # Configure the Devise parameters that the app will accept for authentication
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def ensure_signup_complete
     return if action_name == "finish_signup"
-    if current_user && !current_user.email_verified?
+    if current_user && current_user.email_verified? == false
       redirect_to finish_signup_path(current_user)
     end
   end

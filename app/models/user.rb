@@ -61,15 +61,15 @@ class User < ActiveRecord::Base
   end
 
   def public?
-    role == "public"
+    self.role == "public"
   end
 
-  def premium?
-    role == "premium"
+  def premium? 
+    self.role == "premium"
   end
 
   def admin?
-    role == "admin"
+    self.role == "admin"
   end
 
 end

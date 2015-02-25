@@ -2,8 +2,8 @@ class ChargesController < ApplicationController
   before_action :amount, only: [:new, :create]
 
   def new
-    @stripe_button_data = {
-      key: "#{Rails.confirguration.stripe[:publishable_key]}",
+    @stripe_btn_data = {
+      key: "#{ Rails.configuration.stripe[:publishable_key] }",
       description: "BigMoney Membership - #{current_user.name}",
       amount: @amount
     }
@@ -23,7 +23,11 @@ class ChargesController < ApplicationController
       currency: "usd"
       )
 
-    flash[:success] = "Thanks for all the money, #{current_user,name}!, Feel free to pay me again"
+    if charge[:paid] == true
+      current_user.update(role: "premium")
+    end
+
+    flash[:success] = "Thanks for all the money, #{current_user.name}!, Feel free to pay me again"
     redirect_to wikis_path
 
   rescue Stripe::CardError => e

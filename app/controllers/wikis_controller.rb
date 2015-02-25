@@ -3,7 +3,8 @@ class WikisController < ApplicationController
 
   def index
     @wikis = Wiki.all
-    @user_wikis = @wikis.where(user_id: current_user.id)
+    @user_public_wikis = @wikis.where(user_id: current_user.id)
+    @user_private_wikis = @wikis.where(user_id: current_user.id)
     authorize @wikis
   end
 
@@ -11,12 +12,15 @@ class WikisController < ApplicationController
   end
 
   def new
-    @wiki = Wiki.new
+    @user_public_wiki = Wiki.new
+    @user_private_wiki = Wiki.new
   end
 
   def create
-    @wiki = current_user.wikis.build(wiki_params)
-    if @wiki.save
+    @user_public_wiki = current_user.wikis.build(wiki_params)
+    @user_private_wiki = current_user.wikis.build(wiki_params)
+    authorize @user_private_wiki
+    if @user_public_wiki.save || @user_private_wiki.save
       flash[:notice] = "Your #{@wiki.title} Wiki was successfully created."
       redirect_to wikis_path
     else
