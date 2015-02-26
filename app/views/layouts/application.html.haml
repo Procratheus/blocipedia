@@ -8,7 +8,10 @@
     = csrf_meta_tags
   %body
     = render "partials/nav"
-    = render "partials/flash"
+    .segment
+      = render "partials/flash"
+    .segment
+      %br/
     = yield
     .row
       .column

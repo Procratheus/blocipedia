@@ -1,25 +1,28 @@
-- if flash[:success]
-  .ui.success.message
-    %i.close.icon
-    .header
-      = flash[:success]
-- elsif flash[:notice]
-  .ui.info.message
-    %i.close.icon
-    .header
-      = flash[:notice]
-- elsif flash[:warning]
-  .ui.warning.message
-    %i.close.icon
-    .header
-      = flash[:warning]
-- elsif flash[:error]
-  .ui.negative.message
-    %i.close.icon
-    .header
-      = flash[:error]
-- elsif flash[:danger]
-  .ui.error.message
-    %i.close.icon
-    .header
-      = flash[:danger]
+
+.segment
+  %br/
+  - if flash[:success]
+    .ui.success.message
+      %i.close.icon
+      .header
+        = flash[:success]
+  - elsif flash[:notice]
+    .ui.info.message
+      %i.close.icon
+      .header
+        = flash[:notice]
+  - elsif flash[:warning]
+    .ui.warning.message
+      %i.close.icon
+      .header
+        = flash[:warning]
+  - elsif flash[:error]
+    .ui.negative.message
+      %i.close.icon
+      .header
+        = flash[:error]
+  - elsif flash[:danger]
+    .ui.error.message
+      %i.close.icon
+      .header
+        = flash[:danger]

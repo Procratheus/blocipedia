@@ -16,3 +16,11 @@
 //= require_tree .
 //= require 'epiceditor'
 //= require semantic-ui
+
+// Dismiss flash messages
+$(document).ready(function(){
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').fadeOut();
+  });
+});
+
