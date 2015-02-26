@@ -7,25 +7,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %nav.ui.fixed.menu.inverted.navbar
-      = link_to "Home", root_path, class: "item"
-      = link_to "About", about_path, class: "item"
-      = link_to "Contact Us", contact_path, class: "item"
-      - if current_user && current_user.email_verified?
-        = link_to "Log out", destroy_user_session_path, method: :delete, class: "item right"
-        = link_to current_user.name, edit_user_registration_path, class: "item right"
-      - elsif current_user && !current_user.email_verified?
-        = link_to "Complete Sign-up", finish_signup_path(current_user.id), class: "item right"
-      - else
-        .item.right
-        = link_to user_omniauth_authorize_path(:twitter), class: "item right" do 
-          %i.twitter.icon
-        = link_to user_omniauth_authorize_path(:facebook), class: "item right" do
-          %i.facebook.icon
-        = link_to new_user_session_path, class: "item right" do
-          %i.mail.icon
-        .item.right
-          Sign In with
+    = render "partials/nav"
+    = render "partials/flash"
     = yield
     .row
       .column
