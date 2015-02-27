@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup]
+  before_action :set_user, only: [:show, :edit, :update, :update_role, :destroy, :finish_signup]
 
   def show
   end
@@ -11,10 +11,23 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       sign_in(@user == current_user ? @user : current_user, :bypass => true)
       flash[:info] = "You have updated your user profile succesfully"
-      redirect_to @user
+      redirect_to edit_user_registration_path
     else
       flash[:danger] = "Your credentials were not updated successfully. Please try again!"
       render @user.errors
+    end
+  end
+
+  def update_role
+    @user.public?
+    if @user.update
+      flash[:info] = "You have successfully downgraded your account"
+      redirect_to edit_user_registration_path
+    else
+      flash[:error] = "There was an error, Please try again"
+    end
+    @user.wikis.each do |x|
+      x.update(private: nil)
     end
   end
 

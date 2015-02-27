@@ -12,7 +12,7 @@ class ChargesController < ApplicationController
   def create
 
     customer = Stripe::Customer.create(
-      email: current.user.email,
+      email: current_user.email,
       card: params[:stripeToken]
     )
 
@@ -24,7 +24,7 @@ class ChargesController < ApplicationController
       )
 
     if charge[:paid] == true
-      current_user.update(role: "premium")
+      current_user.premium?
     end
 
     flash[:success] = "Thanks for all the money, #{current_user.name}!, Feel free to pay me again"
@@ -32,7 +32,7 @@ class ChargesController < ApplicationController
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to charges_path
+    redirect_to new_charge_path
   end
 
   protected

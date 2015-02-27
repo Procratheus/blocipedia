@@ -14,5 +14,10 @@
         .field
           = f.label :body
           = f.text_area :body
+        - if current_user.role == "premium" || current_user.role == "admin"
+          .field
+            .ui.checkbox
+              = f.check_box :private
+              = f.label :private
         .field
           = f.submit "Update", class: "ui button blue submit"

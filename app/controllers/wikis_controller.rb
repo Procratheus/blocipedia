@@ -2,9 +2,7 @@ class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wikis = Wiki.all
-    @user_public_wikis = @wikis.where(user_id: current_user.id)
-    @user_private_wikis = @wikis.where(user_id: current_user.id)
+    @wikis = Wiki.visible_to(current_user)
     authorize @wikis
   end
 
@@ -12,15 +10,13 @@ class WikisController < ApplicationController
   end
 
   def new
-    @user_public_wiki = Wiki.new
-    @user_private_wiki = Wiki.new
+    @wiki = Wiki.new
   end
 
   def create
-    @user_public_wiki = current_user.wikis.build(wiki_params)
-    @user_private_wiki = current_user.wikis.build(wiki_params)
-    authorize @user_private_wiki
-    if @user_public_wiki.save || @user_private_wiki.save
+    @wiki = current_user.wikis.build(wiki_params)
+    authorize @wiki
+    if @wiki.save
       flash[:notice] = "Your #{@wiki.title} Wiki was successfully created."
       redirect_to wikis_path
     else
@@ -59,7 +55,7 @@ class WikisController < ApplicationController
   end
 
   def wiki_params
-    params.require(:wiki).permit(:title, :description, :body)
+    params.require(:wiki).permit(:title, :description, :body, :private)
   end
 
 end

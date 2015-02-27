@@ -4,31 +4,22 @@
       %h2 
         Create your new wiki.
     .ui.form.segment
-      - if current_user.role == "public"
-        = form_for @user_public_wiki do |f|
+      = form_for @wiki do |f|
+        .field
+          = f.label :title
+          = f.text_field :title
+        .field
+          = f.label :description
+          = f.text_field :description
+        .field
+          = f.label :body
+          = f.text_area :body
+        - if current_user.role == "premium" || current_user.role == "admin"
           .field
-            = f.label :title
-            = f.text_field :title
-          .field
-            = f.label :description
-            = f.text_field :description
-          .field
-            = f.label :body
-            = f.text_area :body
-          .field
-            = f.submit "Create", class: "ui button blue submit"
-      - else
-        = form_for @user_private_wiki do |f|
-          .field
-            = f.label :title
-            = f.text_field :title
-          .field
-            = f.label :description
-            = f.text_field :description
-          .field
-            = f.label :body
-            = f.text_area :body
-          .field
-            = f.submit "Create", class: "ui button blue submit"
+            .ui.checkbox
+              = f.check_box :private
+              = f.label :private
+        .field
+          = f.submit "Create", class: "ui button blue submit"
 
 

@@ -14,7 +14,7 @@
               %th Edit
               %th Delete
           %tbody
-            - @user_public_wikis.each do |x|
+            - @wikis.each do |x|
               %tr
                 %td= link_to x.title, wiki_path(x)
                 %td= x.description
@@ -36,7 +36,7 @@
               %th Edit
               %th Delete
           %tbody
-            - @user_private_wikis.each do |x|
+            - @wikis.each do |x|
               %tr
                 %td= link_to x.title, wiki_path(x)
                 %td= x.description
