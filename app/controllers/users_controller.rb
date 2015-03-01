@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def update_role
     @user.public?
-    if @user.update
+    if @user.public?
       flash[:info] = "You have successfully downgraded your account"
       redirect_to edit_user_registration_path
     else

@@ -2,8 +2,10 @@ class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wikis = Wiki.visible_to(current_user)
-    authorize @wikis
+    @public_wikis = Wiki.publicly_viewable
+    @private_wikis = Wiki.privately_viewable(current_user)
+    authorize @public_wikis
+    authorize @private_wikis
   end
 
   def show
@@ -11,6 +13,7 @@ class WikisController < ApplicationController
 
   def new
     @wiki = Wiki.new
+    authorize @wiki
   end
 
   def create
@@ -26,10 +29,12 @@ class WikisController < ApplicationController
   end
 
   def edit
+    authorize @wiki
   end
 
   def update
     @wiki.update(wiki_params)
+    authorize @wiki
     if @wiki.save
       flash[:notice] = "Your #{@wiki.title} Wiki was successfully updated."
       redirect_to @wiki
@@ -40,6 +45,7 @@ class WikisController < ApplicationController
   end
 
   def destroy
+    authorize @wiki
     if @wiki.destroy
       flash[:notice] = "Your #{@wiki.title} Wiki was deleted."
       redirect_to wikis_path

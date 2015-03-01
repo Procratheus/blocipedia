@@ -61,15 +61,18 @@ class User < ActiveRecord::Base
   end
 
   def public?
-    self.role == "public"
+    self.update(role: "public")
+    self.wikis.each do |x|
+      x.update(private: nil)
+    end
   end
 
   def premium? 
-    self.role == "premium"
+    self.update(role: "premium")
   end
 
   def admin?
-    self.role == "admin"
+    self.update(role: "admin")
   end
 
 end
