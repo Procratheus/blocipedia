@@ -1,21 +1,19 @@
-
 .ui.page.grid
   .ui.column.middle.aligned.relaxed.fitted.stackable.grid
     .center.aligned
       %br/
       %h1.ui.header 
         Title: 
-        = @wiki.title     
+        = markdown_to_html @wiki.title     
     .ui.form.segment
       .field
         %h3.ui.header
           Description: 
-          = @wiki.description
+          = markdown_to_html @wiki.description
       .field
-        %h4
-          Contents:
-        %p.box-shadow
-          = @wiki.body
+        %h4 Contents:
+        .box-shadow
+          = markdown_to_html @wiki.body
       .segment
         %br/
         = link_to "Edit", edit_wiki_path(@wiki), class: "ui yellow button"

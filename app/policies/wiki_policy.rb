@@ -11,4 +11,8 @@ class WikiPolicy < ApplicationPolicy
   def create?
     user.present? && user.role == "premium"
   end
+
+  def new?
+    user.present?
+  end
 end

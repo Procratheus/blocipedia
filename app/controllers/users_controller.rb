@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :update_role, :destroy, :finish_signup]
 
+  def index
+    @premium_users = User.where(role: "premium")
+  end
+
   def show
   end
 

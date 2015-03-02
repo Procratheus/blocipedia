@@ -19,7 +19,7 @@ end
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password: Faker::Lorem.characters(8...30),
-    role: "private"
+    role: "premium"
     )
   user.save!
 end
@@ -29,7 +29,7 @@ users = User.all
 # Create Wiki
 10.times do
   wiki = Wiki.new(
-    user: users.sample,
+    user_id: users.sample.id,
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph,
@@ -40,7 +40,7 @@ end
 
 10.times do
   wiki = Wiki.new(
-    user: users.sample,
+    user_id: users.sample.id,
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph,
