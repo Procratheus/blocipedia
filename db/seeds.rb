@@ -26,6 +26,15 @@ end
 
 users = User.all
 
+admin = User.new(
+  name: admin,
+  email: "admin@example.com",
+  password: "helloworld",
+  role: "admin"
+  )
+admin.skip_confirmation!
+admin.save!
+
 # Create Wiki
 10.times do
   wiki = Wiki.new(

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @premium_users = User.where(role: "premium")
+    authorize @premium_users
   end
 
   def show

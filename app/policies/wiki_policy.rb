@@ -9,7 +9,7 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present? && user.role == "premium"
+    user.present? && (user.role == "premium" || user.role == "admin")
   end
 
   def new?
