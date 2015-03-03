@@ -4,4 +4,5 @@ class Wiki < ActiveRecord::Base
 
   scope :publicly_viewable, -> { where(private: nil) }
   scope :privately_viewable, -> (user) { where(private: true, user_id: user.id) }
+  scope :admin_viewable, -> (user) { where(private: true) }
 end

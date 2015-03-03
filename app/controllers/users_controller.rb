@@ -7,12 +7,15 @@ class UsersController < ApplicationController
   end
 
   def show
+    authorize @user
   end
 
   def edit
+    authorize @user
   end
 
   def update
+    authorize @user
     if @user.update(user_params)
       sign_in(@user == current_user ? @user : current_user, :bypass => true)
       flash[:info] = "You have updated your user profile succesfully"
@@ -24,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def update_role
+    authorize @user
     @user.public?
     if @user.public?
       flash[:info] = "You have successfully downgraded your account"

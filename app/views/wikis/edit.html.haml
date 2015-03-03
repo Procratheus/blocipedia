@@ -1,27 +1,7 @@
 .ui.page.grid
   .ui.column.middle.aligned.relaxed.fitted.stackable.grid
     .center.aligned
-      %h2 
-        = link_to "Edit '#{@wiki.title}'"
-    .ui.form.segment
-      = form_for @wiki do |f|
-        .field
-          = f.label :title
-          = f.text_field :title
-        .field
-          = f.label :description
-          = f.text_field :description
-        .field
-          = f.label :body
-          = f.hidden_field :body, id: "body"
-        - if current_user.role == "premium" || current_user.role == "admin"
-          .field
-            .ui.checkbox
-              = f.check_box :private
-              = f.label :private
-        .field
-          = f.submit "Update", class: "ui button blue submit"
-%script
-  var editor = new EpicEditor().load();
-  editor.getElement("editor").body.innerHTML = "= escape_javascript(@wiki.body)";
-  function prep() {$("#body")[0].value = (editor.getElement("editor").body.innerHTML);}
+      %h2
+        = "Edit '#{@wiki.title}'"
+      .ui.form.segment
+        = render partial: "wikis/form", locals: { wiki: @wiki}

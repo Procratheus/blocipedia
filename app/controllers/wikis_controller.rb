@@ -4,15 +4,18 @@ class WikisController < ApplicationController
   def index
     @public_wikis = Wiki.publicly_viewable
     @private_wikis = Wiki.privately_viewable(current_user)
+    @admin_wikis = Wiki.admin_viewable(current_user)
     authorize @public_wikis
     authorize @private_wikis
+    authorize @admin_wikis
   end
 
   def show
+    authorize @wiki
   end
 
   def new
-    @wiki = Wiki.new
+    @wiki = current_user.wikis.new
     authorize @wiki
   end
 

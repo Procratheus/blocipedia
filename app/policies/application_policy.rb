@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    user.role == "premium" || user.role == "admin" ? true : false
+    false
   end
 
   def show?

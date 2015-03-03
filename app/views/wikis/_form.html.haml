@@ -1,0 +1,22 @@
+.ui.form.segment
+  = form_for wiki do |f|
+    .field
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :description
+      = f.text_field :description
+    .field
+      = f.label :body
+      = f.text_area :body
+      =# f.hidden_field :body, id: "body"
+    - if current_user.role == "premium" || current_user.role == "admin"
+      .ui.checkbox
+        = f.check_box :private
+        = f.label :private
+    .field
+    = f.submit "Create", class: "ui button blue submit"
+:javascript
+  var editor = new EpicEditor().load();
+  editor.getElement("editor").body.innerHTML = "= escape_javascript(wiki.body)";
+  function prep() {$("#body")[0].value = (editor.getElement("editor").body.innerHTML);}
