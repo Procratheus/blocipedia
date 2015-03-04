@@ -9,6 +9,7 @@ class WikisController < ApplicationController
   end
 
   def show
+    @users = User.where(role: "premium")
     authorize @wiki
   end
 
@@ -19,7 +20,7 @@ class WikisController < ApplicationController
 
   def create
     @wiki = current_user.wikis.build(wiki_params)
-    @wiki.add_user_id_to_wiki(current_user)
+    #@wiki.add_user_id_to_wiki(current_user)
     authorize @wiki
     if @wiki.save
       flash[:notice] = "Your #{@wiki.title} Wiki was successfully created."

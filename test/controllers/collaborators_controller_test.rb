@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SharedWikiTest < ActiveSupport::TestCase
+class CollaboratorsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -37,7 +37,6 @@
               %th Created
               %th Edit
               %th Delete
-              %th Share
           %tbody
             - @private_wikis.each do |x|
               %tr
@@ -46,8 +45,6 @@
                 %td= time_ago_in_words(x.created_at)
                 %td= link_to "Edit", x
                 %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}    
-                %td= link_to "Share", "#"
-
 
 
 

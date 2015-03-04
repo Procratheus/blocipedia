@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
   # Model Associations
   has_many :identities, dependent: :destroy
   has_many :collaborators
-  has_many :wikis, through: :collaborators, dependent: :destroy
+  has_many :wikis, dependent: :destroy
+  has_many :shared_wikis, through: :collaborators, source: :wikis 
 
   # Validations
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update

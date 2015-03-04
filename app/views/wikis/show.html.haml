@@ -19,4 +19,20 @@
       .segment
         %br/
         = link_to "Edit", edit_wiki_path(@wiki), class: "ui yellow button"
+      .segment  
+        %br/
+        = link_to "Share", "#", class: "ui blue button"
+      .segment
+        - @users.each do |user|
+          = user.name
+          = form_for [@wiki, @wiki.collaborators.build] do |f|
+            = f.hidden_field :user_id, value: user.id
+            = f.submit "Share", class: "ui blue button " 
+
+
+
+
+
+
+
 
