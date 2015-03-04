@@ -3,6 +3,8 @@
   - if current_user && current_user.email_verified?
     = link_to "Wikis Index", wikis_path, class: "item"
     = link_to "New Wiki", new_wiki_path, class: "item"
+    -if current_user.role == "premium" || current_user.role == "admin"
+      = link_to "Collaborators", users_path, class: "item"
     = link_to "Log out", destroy_user_session_path, method: :delete, class: "item right"
     = link_to current_user.name, edit_user_registration_path, class: "item right"
   - elsif current_user && !current_user.email_verified?

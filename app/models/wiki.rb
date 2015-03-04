@@ -1,8 +1,12 @@
 class Wiki < ActiveRecord::Base
+  has_many :collaborators
   has_many :users, through: :collaborators
-  has_many :collaborators, dependent: :destroy
-
+  
   scope :publicly_viewable, -> { where(private: nil) }
-  scope :privately_viewable, -> (user) { where(private: true, user_id: user.id) }
-  scope :admin_viewable, -> (user) { where(private: true) }
+  scope :privately_viewable, -> (user) { user.role == "admin" ? where(private: true) : where(private: true, user_id: user.id) }
+
+  def add_user_id_to_wiki(user)
+    self.user_id = user.id
+  end
+
 end

@@ -27,7 +27,7 @@ end
 users = User.all
 
 admin = User.new(
-  name: admin,
+  name: "administrator  ",
   email: "admin@example.com",
   password: "helloworld",
   role: "admin"
@@ -39,7 +39,7 @@ admin.save!
 10.times do
   wiki = Wiki.new(
     user_id: users.sample.id,
-    title: Faker::Lorem.sentence,
+    title: Faker::Lorem.word,
     description: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph,
     private: nil
@@ -50,7 +50,7 @@ end
 10.times do
   wiki = Wiki.new(
     user_id: users.sample.id,
-    title: Faker::Lorem.sentence,
+    title: Faker::Lorem.word,
     description: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph,
     private: true

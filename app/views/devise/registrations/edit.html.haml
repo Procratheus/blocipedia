@@ -40,9 +40,10 @@
             .field
               %br/
               = f.submit "Update", class: "ui left button blue submit"
-        %h3 Upgrade my Account
-        = link_to "Upgrade with stripe", new_charge_path, class: "ui left button green submit"
-        - if current_user.role == "premium" || current_user.role == "admin"
+        - if current_user.role == "public" || current_user.role == "admin"
+          %h3 Upgrade my Account
+          = link_to "Upgrade with stripe", new_charge_path, class: "ui left button green submit"
+        - elsif current_user.role == "premium" || current_user.role == "admin"
           %h3 Downgrade my Account
           = link_to "Downgrade", update_role_path, data: { confirm: "Are you sure?" }, class: "ui left button orange submit", method: :put
         %h3 Cancel my account

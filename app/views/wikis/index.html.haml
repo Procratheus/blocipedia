@@ -19,11 +19,12 @@
               %tr
                 %td= link_to x.title, wiki_path(x)
                 %td= x.description
-                %td= x.created_at
+                %td= time_ago_in_words(x.created_at)
                 %td= link_to "Edit", x
-                %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}      
+                - if x.user_id == current_user || current_user.role == "admin"
+                  %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}      
       .ui.vertical.divider
-        &
+        Or
       .center.aligned.column
         %h2.ui.left.floated.header
           Private Wikis
@@ -41,7 +42,7 @@
               %tr
                 %td= link_to x.title, wiki_path(x)
                 %td= x.description
-                %td= x.created_at
+                %td= time_ago_in_words(x.created_at)
                 %td= link_to "Edit", x
                 %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}      
 
