@@ -27,16 +27,13 @@ class UsersController < ApplicationController
   end
 
   def update_role
-    authorize @user
     @user.public?
+    authorize @user
     if @user.public?
       flash[:info] = "You have successfully downgraded your account"
       redirect_to edit_user_registration_path
     else
       flash[:error] = "There was an error, Please try again"
-    end
-    @user.wikis.each do |x|
-      x.update(private: nil)
     end
   end
 
