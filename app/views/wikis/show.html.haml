@@ -23,11 +23,23 @@
         %br/
         = link_to "Share", "#", class: "ui blue button"
       .segment
-        - @users.each do |user|
-          = user.name
-          = form_for [@wiki, @wiki.collaborators.build] do |f|
-            = f.hidden_field :user_id, value: user.id
-            = f.submit "Share", class: "ui blue button " 
+        %table.ui.table
+            %thead
+              %tr
+                %th Name
+                %th Email
+                %th Collaborate
+            %tbody
+              - @users.each do |user|
+                %tr
+                  %td= user.name
+                  %td= user.email
+                  %td= form_for [@wiki, @wiki.collaborators.build] do |f|
+                      = f.hidden_field :user_id, value: user.id
+                      = f.submit "Share", class: "ui blue button " 
+          
+          
+            
 
 
 
