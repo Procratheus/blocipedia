@@ -21,8 +21,10 @@
                 %td= x.description
                 %td= time_ago_in_words(x.created_at)
                 %td= link_to "Edit", x
-                - if x.user_id == current_user || current_user.role == "admin"
-                  %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}      
+                - if x.user_id == current_user.id || current_user.role == "admin"
+                  %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}     
+                - else
+                  %td 
       .ui.vertical.divider
         Or
       .center.aligned.column

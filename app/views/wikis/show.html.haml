@@ -19,24 +19,27 @@
       .segment
         %br/
         = link_to "Edit", edit_wiki_path(@wiki), class: "ui yellow button"
-      .segment  
-        %br/
-        = link_to "Share", "#", class: "ui blue button"
+    - if current_user.role == "premium" || current_user.role == "admin" 
       .segment
+        %br/
+        %h2.ui.left.floated.header
+          Collaborate with premium Users
+        .ui.clearing.divider
         %table.ui.table
-            %thead
+          %thead
+            %tr
+              %th Name
+              %th Email
+              %th Collaborate
+          %tbody
+            - @users.each do |user|
               %tr
-                %th Name
-                %th Email
-                %th Collaborate
-            %tbody
-              - @users.each do |user|
-                %tr
-                  %td= user.name
-                  %td= user.email
-                  %td= form_for [@wiki, @wiki.collaborators.build] do |f|
-                      = f.hidden_field :user_id, value: user.id
-                      = f.submit "Share", class: "ui blue button " 
+                %td= user.name
+                %td= user.email
+                %td
+                  = form_for [@wiki, @wiki.collaborators.build] do |f|
+                    = f.hidden_field :user_id, value: user.id
+                    = f.submit "Share", class: "ui blue button " 
           
           
             
