@@ -11,7 +11,7 @@ class Wiki < ActiveRecord::Base
     wikis = [] 
     self.all.each do |wiki|
       coll_wiki = wiki.collaborators.where(user_id: @user.id) 
-      wiki_coll = Wiki.find_by(id: coll_wiki.wiki_id)
+      wiki_coll = Wiki.find(coll_wiki[:wiki_id])
       wikis << wiki_coll
     end
     wikis
