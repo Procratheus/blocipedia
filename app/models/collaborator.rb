@@ -1,6 +1,8 @@
 class Collaborator < ActiveRecord::Base
   belongs_to :user
   belongs_to :wiki
-  has_many :shared_wikis
+
+  validates_presence_of :user, :wiki
+  validates_uniqueness_of :user, :scope => :wiki
 
 end

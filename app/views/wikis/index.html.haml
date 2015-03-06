@@ -37,6 +37,7 @@
               %th Title
               %th Description
               %th Created
+              %th Shared
               %th Edit
               %th Delete
           %tbody
@@ -45,8 +46,17 @@
                 %td= link_to x.title, wiki_path(x)
                 %td= x.description
                 %td= time_ago_in_words(x.created_at)
+                %td= " "
                 %td= link_to "Edit", x
-                %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}    
+                %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."} 
+            - @collaborated_wikis.each do |x|
+              %tr
+                %td= link_to x.title, wiki_path(x)
+                %td= x.description
+                %td= time_ago_in_words(x.created_at)
+                %td= "True"
+                %td= link_to "Edit", x
+                %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}       
 
 
 

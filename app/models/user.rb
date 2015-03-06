@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   
   # Model Associations
   has_many :identities, dependent: :destroy
-  has_many :collaborators
+  has_many :collaborators, dependent: :destroy
   has_many :wikis, dependent: :destroy
   has_many :shared_wikis, through: :collaborators, source: :wikis 
 

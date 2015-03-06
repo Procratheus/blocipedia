@@ -33,13 +33,14 @@
               %th Collaborate
           %tbody
             - @users.each do |user|
-              %tr
-                %td= user.name
-                %td= user.email
-                %td
-                  = form_for [@wiki, @wiki.collaborators.build] do |f|
-                    = f.hidden_field :user_id, value: user.id
-                    = f.submit "Share", class: "ui blue button " 
+              - if @wiki.collaborators.where(user_id: user.id)
+                %tr
+                  %td= user.name
+                  %td= user.email
+                  %td
+                    = form_for [@wiki, @wiki.collaborators.build] do |f|
+                      = f.hidden_field :user_id, value: user.id
+                      = f.submit "Share", class: "ui blue button " 
           
           
             

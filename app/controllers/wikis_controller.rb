@@ -4,8 +4,9 @@ class WikisController < ApplicationController
   def index
     @public_wikis = Wiki.publicly_viewable
     @private_wikis = Wiki.privately_viewable(current_user)
+    @collaborated_wikis = Wiki.viewable_collaborations(current_user)
     authorize @public_wikis
-    authorize @private_wikis
+    # authorize @private_wikis
   end
 
   def show
@@ -20,7 +21,6 @@ class WikisController < ApplicationController
 
   def create
     @wiki = current_user.wikis.build(wiki_params)
-    #@wiki.add_user_id_to_wiki(current_user)
     authorize @wiki
     if @wiki.save
       flash[:notice] = "Your #{@wiki.title} Wiki was successfully created."
