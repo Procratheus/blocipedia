@@ -49,7 +49,7 @@
                 %td= " "
                 %td= link_to "Edit", x
                 %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."} 
-            - @collaborated_wikis.each do |x|
+            -# @collaborated_wikis.each do |x|
               %tr
                 %td= link_to x.title, wiki_path(x)
                 %td= x.description

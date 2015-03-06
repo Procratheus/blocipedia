@@ -4,7 +4,7 @@ class WikisController < ApplicationController
   def index
     @public_wikis = Wiki.publicly_viewable
     @private_wikis = Wiki.privately_viewable(current_user)
-    @collaborated_wikis = Wiki.viewable_collaborations(current_user)
+    #@collaborated_wikis = Wiki.viewable_collaborations(current_user)
     authorize @public_wikis
     # authorize @private_wikis
   end
