@@ -8,7 +8,7 @@
       = f.text_field :description
     .field
       = f.label :body
-      = f.text_area :body
+      = f.text_area :body, 'v-model' => 'input'
       =# f.hidden_field :body, id: "body"
     - if (current_user.role == "premium" && (current_user.id == wiki.user_id || wiki.user_id == nil))|| current_user.role == "admin"
       .ui.checkbox
@@ -16,7 +16,3 @@
         = f.label :private
     .field
     = f.submit "Create", class: "ui button blue submit"
-:javascript
-  var editor = new EpicEditor().load();
-  editor.getElement("editor").body.innerHTML = "= escape_javascript(wiki.body)";
-  function prep() {$("#body")[0].value = (editor.getElement("editor").body.innerHTML);}

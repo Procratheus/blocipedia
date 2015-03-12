@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301203018) do
+ActiveRecord::Schema.define(version: 20150304205617) do
 
   create_table "collaborators", force: true do |t|
     t.integer  "user_id"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20150301203018) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "shared_wikis", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "body"
+    t.integer  "collaborator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shared_wikis", ["collaborator_id"], name: "index_shared_wikis_on_collaborator_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

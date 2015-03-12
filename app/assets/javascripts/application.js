@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
-//= require 'epiceditor'
 //= require semantic-ui
+//= require vue
+//= require_tree .
 
 // Dismiss flash messages
 $(document).ready(function(){
