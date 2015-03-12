@@ -11,10 +11,8 @@
             %tr
               %th Name
               %th Email
-              %th Collaborate
           %tbody
             - @premium_users.each do |x|
               %tr
                 %td= x.name 
                 %td= x.email
-                %td= link_to "Add", "#", class: "ui button green"   

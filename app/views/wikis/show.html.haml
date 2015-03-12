@@ -19,7 +19,7 @@
       .segment
         %br/
         = link_to "Edit", edit_wiki_path(@wiki), class: "ui yellow button"
-    - if current_user.role == "premium" || current_user.role == "admin" 
+    - if current_user.role == "admin"  || ( current_user.role == "premium" && @wiki.private == true && @wiki.user_id == current_user.id)
       .segment
         %br/
         %h2.ui.left.floated.header
@@ -33,7 +33,7 @@
               %th Collaborate
           %tbody
             - @users.each do |user|
-              - if @wiki.collaborators.where(user_id: user.id)
+              - if @wiki.shared_users.where(id: user.id) == []
                 %tr
                   %td= user.name
                   %td= user.email
@@ -41,7 +41,26 @@
                     = form_for [@wiki, @wiki.collaborators.build] do |f|
                       = f.hidden_field :user_id, value: user.id
                       = f.submit "Share", class: "ui blue button " 
-          
+      .segment
+        %br/
+        %h2.ui.left.floated.header
+          Users collaborating on this wiki
+        .ui.clearing.divider
+        %table.ui.table
+          %thead
+            %tr
+              %th Name
+              %th Email
+              %th Collaborate
+          %tbody
+            - @users.each do |user|
+              - if @wiki.shared_users.include?(user)
+                %tr
+                  %td= user.name
+                  %td= user.email
+                  %td
+                    = link_to "Remove", wiki_collaborator_path(@wiki, user), method: :delete, class: "ui button red"
+        
           
             
 

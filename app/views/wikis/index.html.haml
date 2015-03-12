@@ -46,17 +46,24 @@
                 %td= link_to x.title, wiki_path(x)
                 %td= x.description
                 %td= time_ago_in_words(x.created_at)
-                %td= " "
+                - if x.shared_users
+                  %td= "True"
+                - else
+                  %td= "False"
                 %td= link_to "Edit", x
-                %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."} 
-            -# @collaborated_wikis.each do |x|
+                - if x.user_id == current_user.id
+                  %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."} 
+            - @collaborated_wikis.each do |x|
               %tr
                 %td= link_to x.title, wiki_path(x)
                 %td= x.description
                 %td= time_ago_in_words(x.created_at)
                 %td= "True"
                 %td= link_to "Edit", x
-                %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}       
+                - if x.user_id == current_user.id
+                  %td= link_to "Delete", x , method: :delete, data: { confirm: "Are you sure want to delete this Wiki."}    
+                - else
+                  %td   
 
 
 

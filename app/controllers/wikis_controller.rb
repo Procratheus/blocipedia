@@ -2,16 +2,16 @@ class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
 
   def index
-    @public_wikis = Wiki.publicly_viewable
+    @public_wikis = Wiki.publicly_viewable(current_user)
     @private_wikis = Wiki.privately_viewable(current_user)
-    #@collaborated_wikis = Wiki.viewable_collaborations(current_user)
+    @collaborated_wikis = current_user.shared_wikis
     authorize @public_wikis
-    # authorize @private_wikis
+    authorize @private_wikis
+    authorize @collaborated_wikis
   end
 
   def show
-    @users = User.where(role: "premium")
-    authorize @wiki
+    @users = User.where.not(id: current_user.id).where(role: "premium")
   end
 
   def new

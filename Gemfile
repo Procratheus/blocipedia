@@ -26,7 +26,6 @@ gem "haml-rails", "~> 0.8"
 gem 'friendly_id', '~> 5.1.0'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-gem 'epic-editor-rails'
 
 group :development do 
   gem 'sqlite3'

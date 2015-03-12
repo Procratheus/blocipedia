@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require 'epiceditor'
 //= require semantic-ui
 
 // Dismiss flash messages

@@ -3,7 +3,7 @@
     .column
       .center.aligned
         %h2 Edit #{resource_name.to_s.humanize}
-      - if current_user
+      - if current_user.identities == []
         .ui.form.segment
           = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
             = devise_error_messages!
@@ -40,6 +40,7 @@
             .field
               %br/
               = f.submit "Update", class: "ui left button blue submit"
+      - if current_user.email_verified?       
         - if current_user.role == "public" || current_user.role == "admin"
           %h3 Upgrade my Account
           = link_to "Upgrade with stripe", new_charge_path, class: "ui left button green submit"

@@ -11,14 +11,14 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:twitter, :facebook]
  
   # Setup Friendly_id
-  extend FriendlyId 
-  friendly_id :name, use: :slugged
+  #extend FriendlyId 
+  #friendly_id :name, use: :slugged
   
   # Model Associations
   has_many :identities, dependent: :destroy
   has_many :collaborators, dependent: :destroy
   has_many :wikis, dependent: :destroy
-  has_many :shared_wikis, through: :collaborators, source: :wikis 
+  has_many :shared_wikis, through: :collaborators, source: :wiki 
 
   # Validations
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
