@@ -28,6 +28,7 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'vuejs-rails'
+gem 'marked-rails'
 
 group :development do 
   gem 'sqlite3'

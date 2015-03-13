@@ -4,8 +4,6 @@
 
 $ ->
   new Vue
-    el: '#editor'
-    data:
-      input: '#new_wiki'
+    el: '#new_wiki'
     filters:
       marked: marked

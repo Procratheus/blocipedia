@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require semantic-ui
 //= require vue
+//= require marked
 //= require_tree .
 
 // Dismiss flash messages

@@ -203,6 +203,7 @@ GEM
     jwt (1.2.1)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    marked-rails (0.3.2.0)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_magick (4.0.3)
@@ -365,6 +366,7 @@ DEPENDENCIES
   haml-rails (~> 0.8)
   jbuilder (~> 2.0)
   jquery-rails
+  marked-rails
   mini_magick
   omniauth
   omniauth-facebook

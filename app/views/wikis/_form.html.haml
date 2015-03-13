@@ -6,13 +6,18 @@
     .field
       = f.label :description
       = f.text_field :description
-    .field
-      = f.label :body
-      = f.text_area :body, 'v-model' => 'input'
-      =# f.hidden_field :body, id: "body"
-    - if (current_user.role == "premium" && (current_user.id == wiki.user_id || wiki.user_id == nil))|| current_user.role == "admin"
-      .ui.checkbox
-        = f.check_box :private
-        = f.label :private
+    .ui.two.column.centered.grid
+      .column
+        .field
+          = f.label :body
+          = f.text_area :body, 'v-model' => 'input'
+          - if (current_user.role == "premium" && (current_user.id == wiki.user_id || wiki.user_id == nil))|| current_user.role == "admin"
+            .ui.checkbox
+              = f.check_box :private
+              = f.label :private
+      .column
+        %h5 Preview
+        .field
+          %div{'v-html' => 'input | marked'} 
     .field
     = f.submit "Create", class: "ui button blue submit"
