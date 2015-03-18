@@ -6,12 +6,18 @@
     .field
       = f.label :description
       = f.text_field :description
-    .field
-      = f.label :body
-      = f.text_area :body
-    - if (current_user.role == "premium" && (current_user.id == wiki.user_id || wiki.user_id == nil))|| current_user.role == "admin"
-      .ui.checkbox
-        = f.check_box :private
-        = f.label :private
-    .field
-    = f.submit "Create", class: "ui button blue submit"
+    .ui.two.column.centered.grid
+      .column
+        .field
+          = f.label :body
+          = f.text_area :body
+        -# if can_mark_private? 
+          .ui.checkbox
+            = f.check_box :private
+            = f.label :private
+      .column
+        .field
+          = label_tag "Preview"
+          %div#preview
+     
+      

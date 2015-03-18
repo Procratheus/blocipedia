@@ -6,6 +6,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/showdown/0.4.0/Showdown.min.js"
   %body
     = render "partials/nav"
     .segment
