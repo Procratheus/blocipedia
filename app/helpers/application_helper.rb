@@ -8,9 +8,7 @@ module ApplicationHelper
   end
 
   def can_mark_private?
-    current_user.role == "premium"
-      && (current_user.id == wiki.user_id || wiki.user_id == nil)
-    || current_user.role == "admin"
+    (current_user.role == "premium"&& (current_user.id == wiki.user_id || wiki.user_id == nil)) || (current_user.role == "admin")
   end
   
 
