@@ -5,7 +5,7 @@
       %h1.ui.header 
         Title: 
         = markdown_to_html @wiki.title     
-    .ui.form.segment
+    %div.ui.form.segment{ 'role' => 'main-nav', class: 'ui form segment', data: { 'foo' => 'bar'} }
       .field
         %h3.ui.header
           Description: 

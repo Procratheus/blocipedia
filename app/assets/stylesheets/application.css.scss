@@ -80,12 +80,14 @@ body{
 }
 
 
+//  ===================
+//  = Markdown editor =
+//  ===================
 
-
-
-
-
-
-
-
-
+#preview {
+  code {
+    padding: 1.5em;
+    border: 4px solid gray;
+    border-radius: 0.2em;
+  }
+}

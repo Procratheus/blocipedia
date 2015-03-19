@@ -25,3 +25,27 @@ $(document).ready(function(){
   });
 });
 
+// showdown
+$(document).ready(function() {
+  marked.setOptions({
+    renderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    pedantic: false,
+    breaks: true,
+    sanitize: true,
+    smartLists: true,
+    smartypants: true
+  });
+
+  var convert = function() {
+    $('#preview').html(marked($('#wiki_body').val()));
+    $('#preview pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  };
+
+  $('#new_wiki').keyup(convert);
+});
+
+

@@ -10,14 +10,14 @@
       .column
         .field
           = f.label :body
-          = f.text_area :body, 'v-model' => 'input'
+          = f.text_area :body
           - if can_mark_private? 
             .ui.checkbox
               = f.check_box :private
               = f.label :private
       .column
-        %h5 Preview
         .field
-          %div{'v-html' => 'input | marked'} 
+          = label_tag 'Preview'
+          %div#preview
     .field
     = f.submit "Create", class: "ui button blue submit"
