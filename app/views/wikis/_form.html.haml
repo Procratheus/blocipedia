@@ -11,7 +11,7 @@
         .field
           = f.label :body
           = f.text_area :body
-        -# if can_mark_private? 
+        - if (current_user.role == "premium" && (current_user.id == wiki.user_id || wiki.user_id == nil))|| current_user.role == "admin"
           .ui.checkbox
             = f.check_box :private
             = f.label :private

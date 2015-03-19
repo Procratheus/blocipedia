@@ -21,9 +21,14 @@ $(document).ready(function(){
   $('.message .close').on('click', function() {
     $(this).closest('.message').fadeOut();
   });
-    var converter = new Showdown.converter();
+    
+  var converter = new Showdown.converter();
   $("#wiki_body").keyup( function() {   
-    var preview = $("#wiki_body").val()
+    hljs.configure({useBR: true});
+    $('#wiki_body').each(function(i, block) {
+      hljs.highlightBlock(block);
+     });
+    var preview = $("#wiki_body").val();
     var preview_converter = converter.makeHtml(preview);
     $("#preview").html(preview_converter);
   });           

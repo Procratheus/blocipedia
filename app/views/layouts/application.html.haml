@@ -4,9 +4,11 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Blocipedia
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/monokai_sublime.min.css"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/showdown/0.4.0/Showdown.min.js"
+    = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"
   %body
     = render "partials/nav"
     .segment
