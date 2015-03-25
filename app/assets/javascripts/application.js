@@ -14,8 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require semantic-ui
-//= require vue
-//= require marked
 //= require_tree .
 
 // Dismiss flash messages
@@ -28,14 +26,14 @@ $(document).ready(function(){
 // showdown
 $(document).ready(function() {
   marked.setOptions({
-    renderer: new marked.Renderer(),
-    gfm: true,
-    tables: true,
-    pedantic: false,
-    breaks: true,
-    sanitize: true,
-    smartLists: true,
-    smartypants: true
+    renderer: new marked.Renderer()
+    // gfm: true,
+    // tables: true,
+    // pedantic: false,
+    // breaks: true,
+    // sanitize: true,
+    // smartLists: true,
+    // smartypants: true
   });
 
   var convert = function() {
